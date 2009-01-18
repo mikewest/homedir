@@ -32,4 +32,4 @@ function check_crontab {
     rm -f ${tmp_real_crontab}
 }
 
-check_crontab
+# check_crontab

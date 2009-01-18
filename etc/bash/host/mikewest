@@ -1,0 +1,13 @@
+# ~/etc/bash/host/sinister
+# -*- Mode: Bash; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 2 -*-
+#
+# commands specific to my home iMac
+
+need mate <<end
+    export VISUAL="${HOME}/bin/textmate";
+    alias commit='git diff --cached | mate ; git commit';
+end
+
+function gd {
+    git diff "$@" | mate
+}

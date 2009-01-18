@@ -7,7 +7,7 @@ function github-start {
     repo="$1"
 
     if [ -n "$repo" ]; then
-        local_repo="${HOME}/Projects/${repo}"
+        local_repo="${HOME}/Repositories/${repo}"
             readme="README.markdown"
           git_user=`git config github.user`
           git_repo="git@github.com:${git_user}/${repo}.git"

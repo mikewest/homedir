@@ -1,0 +1,13 @@
+#!/bin/sh
+#
+# copy home directory files to the named machine
+
+host="${1}"
+
+if [ -n "${host}" ]; then
+    echo "Uploading your key to ${host}: ";
+    ssh -q ${host} "umask 0077; mkdir -p ~/.ssh 2>/dev/null;echo '`cat ~/.ssh/id_rsa.pub`' >> ~/.ssh/authorized_keys;" && echo "Success!"
+else
+    echo 'USAGE: `upload_keys user@host.tld`';
+    exit 1;
+fi

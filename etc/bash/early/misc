@@ -3,4 +3,5 @@
 # 
 # miscellaneous settings
 
+#   overwritten in HOST specific files
 export     VISUAL='vi'

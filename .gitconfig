@@ -1,24 +1,20 @@
-[github]
-	user  = norm
-	token = REPLACE_ME_WITH_TOKEN
-
 [user]
-	email = norm@cackhanded.net
-	name  = Mark Norman Francis
-
-[color]
-	status = auto
-	diff   = auto
-	branch = auto
-
-[merge]
-	tool = opendiff
-
+	email   = SEKRIT
+	name    = Mike West
 [alias]
-	br = branch
-	co = checkout
-	d  = diff
-	dc = diff --cached
-	p  = push
-	s  = status
-
+	co      = checkout
+	st      = status
+	d       = diff
+[color]
+	status  = auto
+	diff    = auto
+	branch  = auto
+[merge]
+	tool    = opendiff
+[apply]
+	whitespace      = nowarn
+[github]
+	user            = mikewest
+	token           = SEKRIT
+[core]
+	excludesfile    = /Users/mikewest/.gitignore

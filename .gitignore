@@ -1,6 +1,6 @@
 # ignore common files not needed under revision control
 var
-
+*.pyc
 
 # ignore sensitive files
 .ssh
@@ -10,8 +10,6 @@ var
 .DS_Store
 .Trash
 .MacOSX
-.junglediskinstance
-.subversion
 
 Applications/
 Desktop/
@@ -26,6 +24,9 @@ Public/
 Sites/
 Sources/
 
+# ignore subversion
+.subversion
+.svn
 
 # ignore server stuff
 Maildir/

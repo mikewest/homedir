@@ -4,26 +4,28 @@
 # git-related commands
 
 function git_status_prompt {
-    local  clean='nothing to commit (working directory clean)'
-    local  dirty=''
-    local branch=$(   git branch --no-color 2>/dev/null   \
-              | sed -e '/^[^*]/d'                   \
-                    -e 's/^* //' )
-    
-    # if we have a branch, check to see if it is dirty
-    if [ "$branch" != "" ]; then
-        [ "$branch" = "master" ] && branch=''   # most common, so don't care
-        
-        status=$( git status 2>/dev/null | tail -n1 )
-        if [ "$status" != "$clean" ]; then
-            dirty='*'
-        fi
-        
-        # prepend a colon separator
-        branch=":$branch"
+    git rev-parse --git-dir &> /dev/null
+    git_status="$(git status 2> /dev/null)"
+    branch_pattern="^# On branch ([^${IFS}]*)"
+    remote_pattern="# Your branch is (.*) of"
+    diverge_pattern="# Your branch and (.*) have diverged"
+    if [[ ! ${git_status}} =~ "working directory clean" ]]; then
+        state="${pred}⚡"
     fi
-    
-    echo "${branch}${dirty}"
+    if [[ ${git_status} =~ ${remote_pattern} ]]; then
+        if [[ ${BASH_REMATCH[1]} == "ahead" ]]; then
+            remote="${pyellow}↑"
+        else
+            remote="${pyellow}↓"
+        fi
+    fi
+    if [[ ${git_status} =~ ${diverge_pattern} ]]; then
+        remote="${pyellow}↕"
+    fi
+    if [[ ${git_status} =~ ${branch_pattern} ]]; then
+        branch="(${BASH_REMATCH[1]})"
+        [ "$branch" = "(master)" ] && branch=''
+        echo "${branch}${remote}${state}"
+    fi
 }
-
-GIT_STATUS='$(git_status_prompt)'
+GIT_STATUS="$(git_status_prompt)"

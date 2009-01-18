@@ -1,3 +1,2 @@
 #!/bin/sh
-
-/usr/local/bin/mate -w "$@"
+mate -w "$@"

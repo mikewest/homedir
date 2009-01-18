@@ -4,8 +4,8 @@
 # set the prompt (should be done as late as possible)
 
 # Basic Prompt
-PS1 = "[${pbgblue}${pbold}\t${preset}] ${pgreen}\$(pwdn 2)${preset} \$ "
-
+PS1="[${pbgblue}${pbold}\t${preset}] ${pgreen}\$(pwdn 2)${preset} \$ "
+export PS1
 # 
 # # most basic prompt
 # current_path="${pbold}\$(pwdn 2)${preset}"

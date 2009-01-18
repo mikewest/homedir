@@ -5,14 +5,3 @@
 
 export  PAGER='less'
 alias    more='less'
-
-export  LESSHISTFILE="${HOME}/var/less_history"
-
-# add colour highlighting where possible
-need lesspipe.sh <<end
-    export  LESSOPEN='| lesspipe.sh %s';
-    export      LESS='-R';
-end
-need pygmentize <<end
-    export LESSCOLORIZER='pygmentize';
-end

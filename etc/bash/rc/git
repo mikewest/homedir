@@ -4,13 +4,14 @@
 # git-related commands
 
 function git_status_prompt {
-    pwd
+    local curdir=`pwd`
+    [[ ! $curdir =~ ^$repository_base ]] && return
     git rev-parse --git-dir &> /dev/null
     git_status="$(git status 2> /dev/null)"
     branch_pattern="^# On branch ([^${IFS}]*)"
     remote_pattern="# Your branch is (.*) of"
     diverge_pattern="# Your branch and (.*) have diverged"
-    if [[ ! ${git_status}} =~ "working directory clean" ]]; then
+    if [[ ! ${git_status} =~ "working directory clean" ]]; then
         state="${pred}⚡"
     fi
     if [[ ${git_status} =~ ${remote_pattern} ]]; then
@@ -29,4 +30,4 @@ function git_status_prompt {
         echo "${branch}${remote}${state}"
     fi
 }
-GIT_STATUS="$(git_status_prompt)"
+GIT_STATUS='$(git_status_prompt)'

@@ -12,6 +12,9 @@ PS1="${current_time} ${current_dir} "
 [ -n "$GIT_STATUS" ] && \
     PS1="${PS1}${pred}${GIT_STATUS}${preset}"
 
+# Is this an SVN branch?
+[ -n "$SVN_STATUS_PROMPT" ] && \
+    PS1="${current_time} ${pyellow}${SVN_STATUS_PROMPT}${preset} ${current_dir} "
 
 PS1="${PS1}\$ "
 # 

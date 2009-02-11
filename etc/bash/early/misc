@@ -7,3 +7,4 @@
 export     VISUAL='vi'
 
 [ -x ${HOME}/Repositories/ ]    &&  repository_base="${HOME}/Repositories"
+[ -x ${HOME}/Branches/ ]        &&  svn_branches_base="${HOME}/Branches"

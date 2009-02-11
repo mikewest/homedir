@@ -1,0 +1,22 @@
+# ~/etc/bash/host/sinister
+# -*- Mode: Bash; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 2 -*-
+#
+# commands specific to my home iMac
+
+need mate <<end
+    export VISUAL="${HOME}/bin/textmate";
+    alias commit='git diff --cached | mate ; git commit';
+end
+
+function gd {
+    git diff "$@" | mate
+}
+
+export sde_root='http://madmin-1.sznet.de/svn/sde_root'
+export sde_branches="${sde_root}/branches"
+
+function tunnels() {
+    ssh -N -f -L 5050:scs.msg.yahoo.com:5050 mikewest@ful.li;
+    ssh -N -f -L 6667:irc.redsrc.com:6667 mikewest@ful.li;
+    ssh -N -f -L 6666:irc.freenode.net:6667 mikewest@ful.li;
+}

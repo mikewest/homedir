@@ -21,10 +21,10 @@ function sparse_checkout() {
         chomp;
 
         if ( $_ eq "css" ) {
-	        $_ = "./sdeimperia85/pblroot/htdocs/css/"
-		} elsif ( $_ eq "grid" ) {
-			$_ = "./sdeimperia/pblroot/includes/grids/workflowoptimierung/"
-		}
+            $_ = "./sdeimperia85/pblroot/htdocs/css/"
+        } elsif ( $_ eq "grid" ) {
+            $_ = "./sdeimperia/pblroot/includes/grids/workflowoptimierung/"
+        }
 
         if ( m {^$}x ) {
             print "USAGE: `sparse_checkout DIRECTORY`\n"
@@ -39,13 +39,32 @@ function sparse_checkout() {
     '
 }
 
+function fixed_bug() {
+    bug_id="$1"
+    if [ -n "${bug_id}" ]; then
+        cd ${svn_branches_base}
+        rm -rf ${svn_branches_base}/${bug_id}
+        svn delete ${sde_branches}/${bug_id} -m "Branch fuer [${bug_id}] loeschen"
+    else
+        echo 'USAGE: `fixed_bug BUG-ID`';
+        return 1;
+    fi
+}
+
 function svn_current_branch() {
-	local branch=`pwd | sed -e "s#.*/\([A-Z]*-[0-9]*\).*#\1#"`
-	local curdir=`pwd`
-	if [ ${branch} = ${curdir} ]; then
-		echo '';
-	else
-	    echo ${branch};	
-	fi
+    local branch=`pwd | sed -e "s#.*/\([A-Z]*-[0-9]*\).*#\1#"`
+    local curdir=`pwd`
+    if [ ${branch} = ${curdir} ]; then
+        echo '';
+    else
+        echo ${branch}; 
+    fi
 }
 SVN_STATUS_PROMPT='$(svn_current_branch)'
+
+function generate_commit_message() {
+    local change_rev=`svn info | grep "^Last Changed Rev:" | sed -e "s#Last Changed Rev: \([0-9]*\)#\1#"`
+    local svn_path=`svn info | grep "^URL:" | sed -e "s#URL: \(.*\)#\1#"`
+    echo "Fix for [${svn_current_branch}]"
+    echo "- svn merge -r????:${change_rev} ${svn_path}"
+}

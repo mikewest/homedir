@@ -1,0 +1,31 @@
+### New Messages
+ 
+activity    "%c activity in %n (%t) [%w:%s]~"
+bell        "%c bell -> %n%f %t^G"
+vbell_msg   " *beep* "
+ 
+ 
+vbell               on      # No annoying audible bell, using "visual bell"
+autodetach          on      # Automatically detach screens on hangup
+startup_message     off     # You know what screen is, right?
+defutf8             on      # Default to UTF-8
+nonblock            on      # Don't let hung windows bring down the whole session
+ 
+defscrollback       5000    # Biiiiig buffer.
+ 
+shell -$SHELL
+pow_detach_msg "Screen session of \$LOGNAME \$:cr:\$:nl:ended."
+ 
+hardstatus alwayslastline 
+hardstatus string "%{gk}[ %{G}%H %{g}][%= %{wk}%?%-Lw%?%{r}(%{W}%n*%f %t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %m/%d %{W}%c %{g}]"
+ 
+# bind ^m screen -t 'loki'    0 ssh   loki
+# bind ^p screen -t 'pt1'     0 ssh   pt1
+# bind ^l screen -t 'p2'      0 ssh   p2
+# bind ^o screen -t 'cgi1'    0 ssh   cgi1
+# bind ^i screen -t 'nada'    0 ssh   nada
+ 
+bindkey -k F6 next
+bindkey -k k1 next
+ 
+bindkey '\033[28~' next # (F15)

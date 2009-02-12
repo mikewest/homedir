@@ -1,0 +1,6 @@
+# ~/etc/bash/rc/screen
+# -*- Mode: Bash; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 2 -*-
+#
+# screen-related commands
+
+alias screen='screen -RU -c ~/.screenrc'

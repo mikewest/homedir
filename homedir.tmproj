@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>currentDocument</key>
+	<string>.screenrc.sde</string>
 	<key>documents</key>
 	<array>
 		<dict>
@@ -13,6 +15,8 @@
 			<string>bin</string>
 		</dict>
 		<dict>
+			<key>expanded</key>
+			<true/>
 			<key>name</key>
 			<string>etc</string>
 			<key>regexFolderFilter</key>
@@ -32,14 +36,84 @@
 			<key>filename</key>
 			<string>README.markdown</string>
 		</dict>
+		<dict>
+			<key>filename</key>
+			<string>.bash_profile</string>
+		</dict>
+		<dict>
+			<key>filename</key>
+			<string>.bashrc</string>
+			<key>lastUsed</key>
+			<date>2009-02-12T14:30:15Z</date>
+		</dict>
+		<dict>
+			<key>filename</key>
+			<string>.gitconfig</string>
+		</dict>
+		<dict>
+			<key>filename</key>
+			<string>.gitignore</string>
+		</dict>
+		<dict>
+			<key>filename</key>
+			<string>.inputrc</string>
+		</dict>
+		<dict>
+			<key>filename</key>
+			<string>.screenrc.sde</string>
+			<key>lastUsed</key>
+			<date>2009-02-12T17:24:49Z</date>
+			<key>selected</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>filename</key>
+			<string>.screenrc</string>
+			<key>lastUsed</key>
+			<date>2009-02-12T17:24:49Z</date>
+		</dict>
 	</array>
 	<key>fileHierarchyDrawerWidth</key>
 	<integer>200</integer>
 	<key>metaData</key>
-	<dict/>
+	<dict>
+		<key>.screenrc</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>0</integer>
+				<key>line</key>
+				<integer>24</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
+		<key>.screenrc.sde</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>0</integer>
+				<key>line</key>
+				<integer>1</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
+	</dict>
+	<key>openDocuments</key>
+	<array>
+		<string>.screenrc.sde</string>
+		<string>.screenrc</string>
+	</array>
 	<key>showFileHierarchyDrawer</key>
 	<true/>
 	<key>windowFrame</key>
-	<string>{{1504, 92}, {1022, 778}}</string>
+	<string>{{1522, 92}, {1022, 778}}</string>
 </dict>
 </plist>

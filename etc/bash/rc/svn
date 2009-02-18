@@ -15,6 +15,9 @@ function branch_for_bug() {
         return 1;
     fi
 }
+function open_bug() {
+  open "${jira_root}/$(svn_current_branch)"
+}
 function sparse_checkout() {
     echo $1 | perl -e '
         $_ = <>;

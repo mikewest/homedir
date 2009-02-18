@@ -3,4 +3,4 @@
 #
 # screen-related commands
 
-alias screen='screen -RU -c ~/.screenrc'
+alias screen='screen -ARU -c ~/.screenrc'

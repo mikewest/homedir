@@ -12,10 +12,6 @@ function gd {
     git diff "$@" | mate
 }
 
-export sde_root='http://madmin-1.sznet.de/svn/sde_root'
-export sde_branches="${sde_root}/branches"
-export jira_root='http://jira.sueddeutsche.de/jira/browse'
-
 function tunnels() {
     ssh -N -f -L 5050:scs.msg.yahoo.com:5050 mikewest@ful.li;
     ssh -N -f -L 6667:irc.redsrc.com:6667 mikewest@ful.li;

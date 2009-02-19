@@ -6,27 +6,10 @@
 # Basic Prompt
 current_time="[${pbgblue}${pbold}\t${preset}]"
 current_dir="${pgreen}\$(pwdn 2)${preset}"
-PS1="${current_time} ${current_dir} "
+PS1="${current_time} ${current_dir}"
 
-# Is this a git repository?
-[ -n "$GIT_STATUS" ] && \
-    PS1="${PS1}${pred}${GIT_STATUS}${preset}"
+# Is this an SVN branch/Git Repository?
+[ -n "$SVN_STATUS_PROMPT" ] && [ -n "$GIT_STATUS" ] && \
+    PS1="${current_time} ${pyellow}${GIT_STATUS}${SVN_STATUS_PROMPT}${preset}${current_dir}"
 
-# Is this an SVN branch?
-[ -n "$SVN_STATUS_PROMPT" ] && \
-    PS1="${current_time} ${pyellow}${SVN_STATUS_PROMPT}${preset} ${current_dir} "
-
-PS1="${PS1}\$ "
-# 
-# # most basic prompt
-# current_path="${pbold}\$(pwdn 2)${preset}"
-# PS1="${hostname}"
-# 
-# # optional prefixes to the basic prompt
-# [ $USER != 'mikewest' ]     && PS1="${USER}@${PS1}"
-# [ -n "$prompt_prefix" ]     && PS1="${prompt_prefix} ${PS1}"
-# [ -n "$WINDOW" ]            && PS1="${pcyan}scr-${WINDOW}${preset} ${PS1}"
-# [ -n "$GIT_STATUS" ]        && \
-#             current_path="${current_path}${pyellow}${GIT_STATUS}${preset}"
-# 
-# PS1="(${PS1} ${current_path})\$ "
+PS1="${PS1} \$ "

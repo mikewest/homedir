@@ -6,5 +6,9 @@
 #   overwritten in HOST specific files
 export     VISUAL='vi'
 
+# PHP Runtime Config
+export      PHPRC="${HOME}/lib/php/php.ini"
+export     PHPLIB="${HOME}/lib/php/"
+
 [ -x ${HOME}/Repositories/ ]    &&  repository_base="${HOME}/Repositories"
 [ -x ${HOME}/Branches/ ]        &&  svn_branches_base="${HOME}/Branches"

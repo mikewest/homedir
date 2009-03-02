@@ -48,9 +48,9 @@ function sparse_checkout() {
 }
 
 function svn_current_branch() {
-    local branch=`pwd | sed -e "s#.*/\([A-Z]*-[0-9]*\).*#\1#"`
+    local branch=`pwd | sed -e "s#.*/\([A-Z]*\-[0-9]*\).*#\1#"`
     local curdir=`pwd`
-    if [ ${branch} = ${curdir} ]; then
+    if [ "${branch}" = "${curdir}" ]; then
         echo '';
     else
         echo "${branch} ";

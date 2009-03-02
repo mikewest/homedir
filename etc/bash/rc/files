@@ -15,4 +15,16 @@ alias   mkdir='mkdir -p'
 
 alias   rm='rm -i'
 
-[ -n $svn_branches_base ] && alias cdb='cd ${svn_branches_base}'
+function cdb {
+  if [ -n ${svn_branches_base} ]; then
+    if [ ! ${1} = "" ]; then
+      dir=`ls -1 ${svn_branches_base}/ | grep "$1"`
+      [[ ! ${dir} = "" ]] && cd "${svn_branches_base}/${dir}" && return;
+      return `cd ${svn_branches_base}/${1}`
+    else
+      cd ${svn_branches_base}/
+    fi
+  else
+    cd $1
+  fi
+}

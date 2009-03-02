@@ -1,0 +1,32 @@
+export jira_root='http://jira.sueddeutsche.de/jira/browse'
+export jira_soap_proxy='http://jira.sueddeutsche.de/jira/rpc/soap/jirasoapservice-v2?wsdl'
+
+function open_bug() {
+  open "${jira_root}/$(svn_current_branch)"
+}
+
+function fixed_bug() {
+    bug_id="$1"
+    if [ -n "${bug_id}" ]; then
+        cd ${svn_branches_base}
+        rm -rf ${svn_branches_base}/${bug_id}
+        svn delete ${sde_branches}/${bug_id} -m "Branch fuer [${bug_id}] loeschen"
+    else
+        if [ -n $(svn_current_branch) ]; then
+          fixed_bug $(svn_current_branch)
+        else 
+          echo 'USAGE: `fixed_bug BUG-ID`';
+          return 1;
+        fi
+    fi
+}
+
+function get_bug_title() {
+  bug_id="FRONT-167"
+  
+  echo $bug_id | perl -e "
+    \$_ = <>;
+    chomp;
+    /* PERL GOES HERE */
+  "
+}

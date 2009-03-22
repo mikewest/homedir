@@ -1,4 +1,4 @@
-# ~/etc/bash/host/sinister
+# ~/etc/bash/host/mikewest
 # -*- Mode: Bash; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 2 -*-
 #
 # commands specific to my home iMac
@@ -11,3 +11,5 @@ end
 function gd {
     git diff "$@" | mate
 }
+
+export prompt_prefix="${pyellow}iMac${preset} "

@@ -4,12 +4,12 @@
 # set the prompt (should be done as late as possible)
 
 # Basic Prompt
-current_time="[${pbgblue}${pbold}\t${preset}]"
+current_time="[${pbgblue}${pbold}\A${preset}]"
 current_dir="${pgreen}\$(pwdn 2)${preset}"
-PS1="${current_time} ${current_dir}"
+PS1="${prompt_prefix}${current_time} ${current_dir}"
 
 # Is this an SVN branch/Git Repository?
 [ -n "$SVN_STATUS_PROMPT" ] && [ -n "$GIT_STATUS" ] && \
-    PS1="${current_time} ${pyellow}${GIT_STATUS}${SVN_STATUS_PROMPT}${preset}${current_dir}"
+    PS1="${prompt_prefix}${current_time} ${pyellow}${GIT_STATUS}${SVN_STATUS_PROMPT}${preset}${current_dir}"
 
 PS1="${PS1} \$ "

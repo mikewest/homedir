@@ -1,7 +1,7 @@
-# ~/etc/bash/host/sinister
+# ~/etc/bash/host/svnm00265n
 # -*- Mode: Bash; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 2 -*-
 #
-# commands specific to my home iMac
+# commands specific to my work macbook
 
 need mate <<end
     export VISUAL="${HOME}/bin/textmate";
@@ -17,3 +17,5 @@ function tunnels() {
     ssh -N -f -L 6667:irc.redsrc.com:6667 mikewest@ful.li;
     ssh -N -f -L 6666:irc.freenode.net:6667 mikewest@ful.li;
 }
+
+export prompt_prefix="${pyellow}macbook${preset} "

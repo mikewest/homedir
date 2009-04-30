@@ -1,0 +1,16 @@
+#!/bin/sh
+# -*- Mode: Bash; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 2 -*-
+
+if [ -n "${1}" ]; then
+    # Copied wholesale from http://weblog.jamisbuck.org/2008/8/15/cloning-ubuntu-hardy-image-in-vmware-fusion
+    hostname=`hostname`
+    echo "Renaming '${hostname}' to '${1}'" &&
+    sudo perl -i.bak -pe "s/\Q${hostname}\E/${1}/g" /etc/hostname &&
+    sudo perl -i.bak -pe "s/\Q${hostname}\E/${1}/g" /etc/hosts &&
+    sudo rm -f /etc/udev/rules.d/70-persistent-net.rules &&
+    echo "Success!  Rebooting!" &&
+    sudo shutdown -r now
+else
+    echo "Usage: update_copied_vm <new-hostname>"
+    exit 1
+fi

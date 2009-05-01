@@ -19,16 +19,16 @@ pow_detach_msg "Screen session of \$LOGNAME \$:cr:\$:nl:ended."
 hardstatus alwayslastline 
 hardstatus string "%{gk}[ %{G}%H %{g}][%= %{wk}%?%-Lw%?%{r}(%{W}%n*%f %t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %m/%d %{W}%c %{g}]"
 
-bind ^i screen -t 'Imperia3' ssh imperia3
-bind ^o screen -t 'Imperia4' ssh imperia4
+bind ^i screen -t 'Imperia3'  ssh imperia3
+bind ^o screen -t 'Imperia4'  ssh imperia4
+bind ^p screen -t 'Staging'   ssh staging
 
 bindkey -k F5 next
 bindkey -k F3 prev
 
-
-
 screen -t bash        bash
 defencoding ISO8859-15
 screen -t vmware      ssh vmware
+screen -t staging     ssh staging
 screen -t imperia3    ssh imperia3
 screen -t imperia4    ssh imperia4

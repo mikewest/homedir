@@ -1,0 +1,13 @@
+# ~/etc/bash/rc/svn
+# -*- Mode: Bash; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 2 -*-
+#
+# version control-related commands
+
+# Simple alias to run `status` on Git and SVN repositories
+function st() {
+  if [ -d '.svn' ]; then
+    svn status
+  else
+    git status
+  fi
+}

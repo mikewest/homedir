@@ -6,7 +6,6 @@
 export sde_root='http://madmin-1.sznet.de/svn/sde_root'
 export sde_branches="${sde_root}/branches"
 
-alias st="svn status"
 alias update_demo="ssh host1 'svn up /var/www/beispiel-seiten.sueddeutsche.de/'"
 
 function branch_for_bug() {

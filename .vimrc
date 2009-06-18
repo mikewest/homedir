@@ -22,6 +22,10 @@ set scrolloff=3
 set backupdir=~/.vim/tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set directory=~/.vim/tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 
+" scroll a bit faster
+nnoremap <C-e> 3<C-e>
+nnoremap <C-y> 3<C-y>
+
 " syntax highlighting
 if has('syntax')
     syntax on
@@ -79,7 +83,18 @@ if has('cmdline_info')
     set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%)
     set showcmd
 endif
- 
+
+" search
+set hlsearch
+set incsearch
+
+" trailing whitespace
+set listchars=tab:>-,trail:·,eol:$
+nmap <silent> <leader>s :set nolist!<CR>
+
+" get rid of prompts I don't care about
+set shortmess=atI
+
 " wrap around when crossing left and right edge of editors
-set whichwrap=h,l,~,[,]
+set whichwrap=h,l,~,[,],<,>
 set backspace=eol,start,indent

@@ -20,6 +20,11 @@ do
     source $rc_file
 done
 
+# most common bash settings kept in separate rc files
+for rc_file in $( echo ~/etc/bash/rc/* )
+do
+    source $rc_file
+done
 
 # os-specific settings
 source_if_exists ~/etc/bash/os/${hostos}
@@ -29,14 +34,6 @@ source_if_exists ~/etc/bash/arch/${HOSTTYPE}
 
 # host-specific settings
 source_if_exists ~/etc/bash/host/${hostname}
-
-
-# most common bash settings kept in separate rc files
-for rc_file in $( echo ~/etc/bash/rc/* )
-do
-    source $rc_file
-done
-
 
 # prompt comes last
 source_or_warn ~/etc/bash/prompt

@@ -1,0 +1,12 @@
+# ~/etc/bash/os/Linux
+#
+# bash startup commands specifically for Linux boxes
+
+# pretty colours in GNU style
+export LS_COLORS='di=93:fi=0:ln=36:pi=5:so=95:bd=5:cd=5:or=31:mi=31:ex=32:tw=36:ow=36'
+
+# Instead of -G use --color
+alias      ls='ls -F --color'
+
+# Top doesn't have an `-o` flag by default under JeOS
+alias    top='top -s5'

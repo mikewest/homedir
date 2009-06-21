@@ -1,3 +1,6 @@
+### Maintain path
+shell -/bin/bash
+
 ### New Messages
  
 activity    "%c activity in %n (%t) [%w:%s]~"

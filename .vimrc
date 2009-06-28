@@ -1,3 +1,17 @@
+"
+"   VIM Config
+"
+"   Pulled together from a wide variety of sources, in particular:
+"   *   _General goodness_: http://items.sjbach.com/319/configuring-vim-right   
+"   *   _Colors:
+"       *   http://rtlechow.com/2008/12/256-colors-in-vim-inside-screen-in-an-iterm-on-os-x-leopard
+"       *   http://pjkh.com/articles/2008/07/09/osx-iterm-screen-vim-256-colors
+"
+
+" Colors (via http://rtlechow.com/2008/12/256-colors-in-vim-inside-screen-in-an-iterm-on-os-x-leopard/)
+set t_Co=256            " Use 256 colors
+:colorscheme railscasts " Still deciding if I like this or not
+
 " cribbed from http://items.sjbach.com/319/configuring-vim-right
 set hidden
 nnoremap ' `
@@ -32,8 +46,7 @@ if has('syntax')
     filetype on
     filetype plugin on
     filetype indent on
-    set background=dark
-    colorscheme desert
+    set cursorline      " What line am I on?
 endif
  
 " don't annoy me
@@ -50,9 +63,6 @@ if has('gui_running')
     set guifont=Panic\ Sans\ 8
     set showtabline=2
     set guitablabel=%t
-else
-    set background=dark
-    colorscheme desert
 end
  
 " forget about Vi
@@ -98,3 +108,14 @@ set shortmess=atI
 " wrap around when crossing left and right edge of editors
 set whichwrap=h,l,~,[,],<,>
 set backspace=eol,start,indent
+
+""" PLUGINS
+
+" NERD_Tree
+map <silent> <leader>d :execute 'NERDTreeToggle ' . getcwd()<CR>
+
+" FuzzyFinder
+let g:fuzzy_ignore = "*.log"
+let g:fuzzy_matching_limit = 70
+map <silent> <leader>t :FuzzyFinderTextMate<CR>
+map <silent> <leader>b :FuzzyFinderBuffer<CR>

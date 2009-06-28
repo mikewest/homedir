@@ -9,3 +9,5 @@ ln -s ~/Repositories/homedir/.inputrc ~/.inputrc
 ln -s ~/Repositories/homedir/.screenrc ~/.screenrc
 ln -s ~/Repositories/homedir/.gitignore ~/.gitignore
 ln -s ~/Repositories/homedir/.gitconfig ~/.gitconfig
+ln -s ~/Repositories/homedir/.vimrc ~/.vimrc
+ln -s ~/Repositories/homedir/.vim ~/.vim

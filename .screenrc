@@ -7,7 +7,17 @@ activity    "%c activity in %n (%t) [%w:%s]~"
 bell        "%c bell -> %n%f %t^G"
 vbell_msg   " *beep* "
  
- 
+### Colors (from http://rtlechow.com/2008/12/256-colors-in-vim-inside-screen-in-an-iterm-on-os-x-leopard/ )
+
+attrcolor b ".I" # Allow bold colors
+termcapinfo xterm "Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm" 
+termcapinfo xterm-color "Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm"
+termcapinfo xterm-256color "Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm"
+term xterm-256color
+defbce "on"                 # Erase background with current bg color
+
+### Generic Config
+
 vbell               on      # No annoying audible bell, using "visual bell"
 autodetach          on      # Automatically detach screens on hangup
 startup_message     off     # You know what screen is, right?

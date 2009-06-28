@@ -1,0 +1,1 @@
+<html><body>You are being <a href="http://github.com/spicycode/bringing-vim-to-the-people/tree/c52acd31e9c5891293ccddb2ad01fb2d98dcd558/.vim/doc/taskpaper_license.txt?raw=true">redirected</a>.</body></html>

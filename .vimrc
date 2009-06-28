@@ -5,10 +5,11 @@
 "   *   _General goodness_:
 "       *   http://items.sjbach.com/319/configuring-vim-right
 "       *   http://github.com/spicycode/bringing-vim-to-the-people/
-"   *   _Colors:
+"   *   _Colors_:
 "       *   http://rtlechow.com/2008/12/256-colors-in-vim-inside-screen-in-an-iterm-on-os-x-leopard
 "       *   http://pjkh.com/articles/2008/07/09/osx-iterm-screen-vim-256-colors
-"
+"   *   _Long line highlighting_:
+"       *   http://muffinresearch.co.uk/archives/2009/06/22/vim-automatically-highlight-long-lines/
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Colors
@@ -27,11 +28,9 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "   Generic Config
 "
-    set encoding=utf8                   " UTF-8!  Yay!
+    set encoding=utf8               " UTF-8!  Yay!
     set nocompatible                " Vim is The Future.
     set hidden                      " 'Hidden' buffers are awesome.
-    nnoremap ' `                    " ` is more useful than '.  Swap them.
-    nnoremap ` '
     let mapleader=","               " Set ',' as leader.  I'm thinking that '\' might be better.  Or '`'.
     set history=1000                " More history is better
     runtime macros/matchit.vim      " Make '%' more useful
@@ -44,6 +43,11 @@
     set laststatus=2                " Always show status line
     set showmode                    " Tell me what mode I'm in (insert/visual/etc)
     set showmatch                   " Automatically show matching brace/parens/etc.
+
+    " Helpful mappings
+    nnoremap ' `                            " ` is more useful than '.  Swap them.
+    nnoremap ` '
+    nmap <silent> <leader>p :set paste!<CR> " <leader>p toggles paste mode
 
     " Modelines let me set file-specific settings with file headers
     set modeline
@@ -59,6 +63,19 @@
     " temp files in ~/.vim/tmp
     set backupdir=~/.vim/tmp,~/.tmp,~/tmp,/var/tmp,/tmp
     set directory=~/.vim/tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"   Tabs
+"
+    " Always show the tab line
+    set showtabline=2
+
+    " Open a new tab with <leader>t
+    nmap <silent> <leader>t :tabnew<CR>
+
+    " Map <leader>[ and <leader>] to previous/next tab.
+    nmap <silent> <leader>[ :tabp<CR>
+    nmap <silent> <leader>] :tabn<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "   Searching and Scrolling
@@ -88,6 +105,15 @@
 
     " Don't softwrap files by default
     set nowrap
+
+    " Highlight lines over 77 columns
+    if has('matchadd')
+        :au BufWinEnter * let w:m1=matchadd('Search', '\%<81v.\%>77v', -1)
+        :au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
+    else
+        :au BufRead,BufNewFile * syntax match Search /\%<81v.\%>77v/
+        :au BufRead,BufNewFile * syntax match ErrorMsg /\%>80v.\+/
+    endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "   GUI Settings (I don't actually use these (except the mouse)... will delete
@@ -142,9 +168,16 @@
     let g:fuzzy_enumerating_limit=20
     let g:fuzzy_path_display='relative_path'
     let g:fuzzy_matching_limit=70
-    map <silent> <leader>t :FuzzyFinderTextMate<CR>
+    map <silent> <leader>f :FuzzyFinderTextMate<CR>
     map <silent> <leader>b :FuzzyFinderBuffer<CR>
     " Use FuzzyFinder to replace built-in tag navigation (:tag / <C-]>):
     nnoremap <silent> <C-f><C-t> :FuzzyFinderTag!<CR>
     nnoremap <silent> <C-]>      :FuzzyFinderTag! <C-r>=expand('<cword>')<CR><CR>
+
+    " SuperTab
+    let g:SuperTabMidWordCompletion = 0             " No mid-word completion
+    let g:SuperTabMappingTabLiteral = '<S-tab>'     " Shift-Tab inserts literal tab
+    let g:SuperTabMappingBackward = '<C-tab>'       " Map ctrl-tab to backwards tab completion
+
+
 

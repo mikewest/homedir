@@ -12,7 +12,7 @@ hostname=`scutil --get LocalHostName`
 
 # Pretty colours for ls
 export LSCOLORS=dxfxcxdxbxegedabagacad
-alias ls='ls -FG'
+alias ls='ls -FGH'
 
 # hibernation program
 [ -x /usr/local/bin/deepsleep ]     && alias hibernate='sudo deepsleep'

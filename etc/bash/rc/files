@@ -9,7 +9,7 @@ alias    f.='find .'
 alias   fgr='find . | ack -i'
 alias   fgx='find . -print0 | xargs -0 ack -i'
 
-alias   ll='ls -lah'
+alias   ll='ls -lahH'
 
 alias   mkdir='mkdir -p'
 
@@ -18,7 +18,7 @@ alias   rm='rm -i'
 function cdb {
   if [ -n ${svn_branches_base} ]; then
     if [ ! ${1} = "" ]; then
-      dir=`ls -1 ${svn_branches_base}/ | grep "$1"`
+      dir=`/bin/ls -H1 ${svn_branches_base}/ | grep "$1"`
       [[ ! ${dir} = "" ]] && cd "${svn_branches_base}/${dir}" && return;
       return `cd ${svn_branches_base}/${1}`
     else

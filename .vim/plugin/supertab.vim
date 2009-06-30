@@ -513,9 +513,9 @@ function! s:WillComplete ()
   endif
 
   " In keyword completion mode and no preceding word characters.
-  "if (b:complType == "\<c-n>" || b:complType == "\<c-p>") && !s:IsWordChar(prev_char)
-  "  return 0
-  "endif
+  if (b:complType == "\<c-n>" || b:complType == "\<c-p>") && !s:IsWordChar(prev_char)
+    return 0
+  endif
 
   return 1
 endfunction " }}}

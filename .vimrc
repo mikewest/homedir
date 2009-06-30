@@ -107,13 +107,13 @@
     set nowrap
 
     " Highlight lines over 77 columns
-    if has('matchadd')
-        :au BufWinEnter * let w:m1=matchadd('Search', '\%<81v.\%>77v', -1)
-        :au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
-    else
-        :au BufRead,BufNewFile * syntax match Search /\%<81v.\%>77v/
-        :au BufRead,BufNewFile * syntax match ErrorMsg /\%>80v.\+/
-    endif
+    " if has('matchadd')
+    "     :au BufWinEnter * let w:m1=matchadd('Search', '\%<81v.\%>77v', -1)
+    "     :au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
+    " else
+    "     :au BufRead,BufNewFile * syntax match Search /\%<81v.\%>77v/
+    "     :au BufRead,BufNewFile * syntax match ErrorMsg /\%>80v.\+/
+    " endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "   GUI Settings (I don't actually use these (except the mouse)... will delete
@@ -145,7 +145,7 @@
     set shiftwidth=4
     set softtabstop=4
     set expandtab
- 
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "   Plugins
 "
@@ -167,7 +167,7 @@
     let g:fuzzy_ignore="*.log;*.png;*.jpg;*.gif"
     let g:fuzzy_enumerating_limit=20
     let g:fuzzy_path_display='relative_path'
-    let g:fuzzy_matching_limit=70
+    let g:fuzzy_ceiling=7000
     map <silent> <leader>f :FuzzyFinderTextMate<CR>
     map <silent> <leader>b :FuzzyFinderBuffer<CR>
     " Use FuzzyFinder to replace built-in tag navigation (:tag / <C-]>):

@@ -5,11 +5,13 @@
 "   *   _General goodness_:
 "       *   http://items.sjbach.com/319/configuring-vim-right
 "       *   http://github.com/spicycode/bringing-vim-to-the-people/
+"       *   http://vimrc-dissection.blogspot.com/
 "   *   _Colors_:
 "       *   http://rtlechow.com/2008/12/256-colors-in-vim-inside-screen-in-an-iterm-on-os-x-leopard
 "       *   http://pjkh.com/articles/2008/07/09/osx-iterm-screen-vim-256-colors
 "   *   _Long line highlighting_:
 "       *   http://muffinresearch.co.uk/archives/2009/06/22/vim-automatically-highlight-long-lines/
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Colors
@@ -49,6 +51,14 @@
     nnoremap ` '
     nmap <silent> <leader>p :set paste!<CR> " <leader>p toggles paste mode
 
+    " Fix page up/down to maintain cursor position: Also: page up/down now
+    " scroll only half a screen at a time.  I'm pretty much ok with that.  :)
+    map <PageUp>    <C-U>
+    map <PageDown>  <C-D>
+    imap <PageUp>   <C-O><C-U>
+    imap <PageUp>   <C-O><C-D>
+    set nostartofline               " Preserve column when repositioning cursor  
+
     " Modelines let me set file-specific settings with file headers
     set modeline
     set modelines=5
@@ -56,13 +66,19 @@
     " Ruler / Rulerformat 
     if has('cmdline_info')
         set ruler
-        set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%)
+        set rulerformat=%30(%=\:b%n%y%m%r%w\ [Line=%4l,Col=%2c]\ %P%)
         set showcmd
     endif
 
     " temp files in ~/.vim/tmp
     set backupdir=~/.vim/tmp,~/.tmp,~/tmp,/var/tmp,/tmp
     set directory=~/.vim/tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+
+    " Set `K` to call help on the currently marked keyword in vimrc
+    au BufReadPost .vimrc map K :exe ":help ".expand("<cword>")<CR>
+
+    " Ctrl-A == Select All
+    nmap <silent> <C-A> ggVG<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "   Tabs
@@ -145,6 +161,10 @@
     set shiftwidth=4
     set softtabstop=4
     set expandtab
+
+    " Indent in visual mode remains in visual mode: allows multiple indents
+    vmap <silent> > >gv<CR>
+    vmap <silent> < <gv<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "   Plugins

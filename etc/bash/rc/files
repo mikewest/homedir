@@ -18,7 +18,7 @@ alias   rm='rm -i'
 function cdb {
   if [ -n ${svn_branches_base} ]; then
     if [ ! ${1} = "" ]; then
-      dir=`/bin/ls -H1 ${svn_branches_base}/ | grep "$1"`
+      dir=`/bin/ls -H1 ${svn_branches_base}/ | grep -m 1 "$1"`
       [[ ! ${dir} = "" ]] && cd "${svn_branches_base}/${dir}" && return;
       return `cd ${svn_branches_base}/${1}`
     else

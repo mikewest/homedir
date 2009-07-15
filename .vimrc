@@ -80,6 +80,9 @@
     " Ctrl-A == Select All
     nmap <silent> <C-A> ggVG<CR>
 
+    " Map `cc` to OSX clipboard
+    map cc :w !pbcopy
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "   Tabs
 "

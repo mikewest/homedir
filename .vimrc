@@ -49,7 +49,7 @@
     " Helpful mappings
     nnoremap ' `                            " ` is more useful than '.  Swap them.
     nnoremap ` '
-    nmap <silent> <leader>p :set paste!<CR> " <leader>p toggles paste mode
+    map <silent> <leader>p :set paste!<CR> " <leader>p toggles paste mode
 
     " Fix page up/down to maintain cursor position: Also: page up/down now
     " scroll only half a screen at a time.  I'm pretty much ok with that.  :)
@@ -80,8 +80,9 @@
     " Ctrl-A == Select All
     nmap <silent> <C-A> ggVG<CR>
 
-    " Map `cc` to OSX clipboard
-    map cc :w !pbcopy
+    " Map <Ctrl-C> and <Ctrl-V> to the OSX clipboard (using fakeclip plugin)
+    map <C-C> <Plug>(fakeclip-y)
+    map <C-V> <Plug>(fakeclip-p)
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "   Tabs

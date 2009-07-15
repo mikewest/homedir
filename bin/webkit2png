@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+/usr/bin/python ~/lib/python/webkit2png/webkit2png $1

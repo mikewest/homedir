@@ -1,0 +1,3 @@
+[submodule "./lib/python/webkit2png"]
+	path = ./lib/python/webkit2png
+	url = git://github.com/paulhammond/webkit2png.git

@@ -96,7 +96,7 @@
     " scroll a bit faster
     nnoremap <C-e> 3<C-e>
     nnoremap <C-y> 3<C-y>
-    
+
     " Highlight search, incrementally
     set hlsearch
     set incsearch
@@ -108,9 +108,18 @@
     " show more stuff around the cursor
     set scrolloff=3
  
-    " Toggle display of whitespace
-    set listchars=tab:>-,trail:·,eol:$
-    nmap <silent> <leader>s :set nolist!<CR>
+    " Toggle display of whitespace and +80 character lines with <leader>s
+    set listchars=nbsp:¬,eol:¶,tab:>-,extends:»,precedes:«,trail:·
+    nnoremap <silent> <leader>s
+        \ :set nolist!<CR>
+        \ :if exists('w:long_line_match') <Bar>
+        \   silent! call matchdelete(w:long_line_match) <Bar>
+        \   unlet w:long_line_match <Bar>
+        \ elseif &textwidth > 0 <Bar>
+        \   let w:long_line_match = matchadd('ErrorMsg', '\%>'.&tw.'v.\+', -1) <Bar>
+        \ else <Bar>
+        \   let w:long_line_match = matchadd('ErrorMsg', '\%>80v.\+', -1) <Bar>
+        \ endif<CR>
 
     " wrap around when crossing left and right edge of editors
     set whichwrap=h,l,~,[,],<,>
@@ -126,15 +135,6 @@
     imap <PageUp>   <C-O><C-U>
     imap <PageDown> <C-O><C-D>
     set nostartofline               " Preserve column when repositioning cursor  
-
-    " Highlight lines over 77 columns
-    " if has('matchadd')
-    "     :au BufWinEnter * let w:m1=matchadd('Search', '\%<81v.\%>77v', -1)
-    "     :au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
-    " else
-    "     :au BufRead,BufNewFile * syntax match Search /\%<81v.\%>77v/
-    "     :au BufRead,BufNewFile * syntax match ErrorMsg /\%>80v.\+/
-    " endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "   GUI Settings (I don't actually use these (except the mouse)... will delete

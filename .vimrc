@@ -51,13 +51,6 @@
     nnoremap ` '
     map <silent> <leader>p :set paste!<CR> " <leader>p toggles paste mode
 
-    " Fix page up/down to maintain cursor position: Also: page up/down now
-    " scroll only half a screen at a time.  I'm pretty much ok with that.  :)
-    map <PageUp>    <C-U>
-    map <PageDown>  <C-D>
-    imap <PageUp>   <C-O><C-U>
-    imap <PageUp>   <C-O><C-D>
-    set nostartofline               " Preserve column when repositioning cursor  
 
     " Modelines let me set file-specific settings with file headers
     set modeline
@@ -126,6 +119,14 @@
     " Don't softwrap files by default
     set nowrap
 
+    " Fix page up/down to maintain cursor position: Also: page up/down now
+    " scroll only half a screen at a time.  I'm pretty much ok with that.  :)
+    map <PageUp>    <C-U>
+    map <PageDown>  <C-D>
+    imap <PageUp>   <C-O><C-U>
+    imap <PageDown> <C-O><C-D>
+    set nostartofline               " Preserve column when repositioning cursor  
+
     " Highlight lines over 77 columns
     " if has('matchadd')
     "     :au BufWinEnter * let w:m1=matchadd('Search', '\%<81v.\%>77v', -1)
@@ -181,11 +182,10 @@
     map <silent> <leader>d :execute 'NERDTreeToggle ' . getcwd()<CR>
 
     " NERD_Comment
-    let NERDShutUp = 1
-    let NERDDefaultNesting = 0
-    nmap <D-/> ,c<Space>
-    vmap <D-/> ,c<Space>
-    imap <D-/> <C-O>,c<Space>
+    let NERDCommentWholeLinesInVMode=1
+    let NERDSpaceDelims=1
+    map  <leader>/  <Plug>NERDCommenterToggle
+    imap <C-/>      <C-O><Plug>NERDCommenterToggle
 
     " FuzzyFinder
     map <silent> <leader>f :tabnew<CR>:FuzzyFinderFile <C-r>='\*\*\/'<CR><CR>
@@ -209,6 +209,3 @@
     let g:SuperTabMidWordCompletion = 0             " No mid-word completion
     let g:SuperTabMappingTabLiteral = '<S-tab>'     " Shift-Tab inserts literal tab
     let g:SuperTabMappingBackward = '<C-tab>'       " Map ctrl-tab to backwards tab completion
-
-
-

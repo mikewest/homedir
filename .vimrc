@@ -188,13 +188,20 @@
     imap <D-/> <C-O>,c<Space>
 
     " FuzzyFinder
-    let g:fuzzy_ignore="*.log;*.png;*.jpg;*.gif"
-    let g:fuzzy_enumerating_limit=20
-    let g:fuzzy_path_display='relative_path'
-    let g:fuzzy_ceiling=7000
-    map <silent> <leader>f :FuzzyFinderTextMate<CR>
+    map <silent> <leader>f :tabnew<CR>:FuzzyFinderFile <C-r>='\*\*\/'<CR><CR>
+    map <silent> <C-f> <leader>f
     map <silent> <leader>b :FuzzyFinderBuffer<CR>
     " Use FuzzyFinder to replace built-in tag navigation (:tag / <C-]>):
+    let g:FuzzyFinderOptions = { 'Base':{}, 'Buffer':{}, 'File':{}, 'Dir':{},
+              \                      'MruFile':{}, 'MruCmd':{}, 'Bookmark':{},
+              \                      'Tag':{}, 'TaggedFile':{},
+              \                      'GivenFile':{}, 'GivenDir':{},
+              \                      'CallbackFile':{}, 'CallbackItem':{}, }
+    let g:FuzzyFinderOptions.File.prompt='>'
+    let g:FuzzyFinderOptions.File.excluded_path = '\v\~$|\.o$|\.exe$|\.bak$|\.swp|\.jpg|\.gif|\.png|\.pyc$'
+    let g:FuzzyFinderOptions.Base.info_file = '~/.vim/temp/fuzzyfinder-stats'
+
+
     nnoremap <silent> <C-f><C-t> :FuzzyFinderTag!<CR>
     nnoremap <silent> <C-]>      :FuzzyFinderTag! <C-r>=expand('<cword>')<CR><CR>
 

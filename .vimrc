@@ -78,17 +78,20 @@
     map <C-V> <Plug>(fakeclip-p)
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"   Tabs
+"   Tabs/Buffers
 "
     " Always show the tab line
-    set showtabline=2
+    " set showtabline=
 
     " Open a new tab with <leader>t
     nmap <silent> <leader>t :tabnew<CR>
 
-    " Map <leader>[ and <leader>] to previous/next tab.
-    nmap <silent> <leader>[ :tabp<CR>
-    nmap <silent> <leader>] :tabn<CR>
+    " Map <leader>[ and <leader>] to previous/next buffer
+    nmap <silent> <leader>[ :bp<CR>
+    nmap <silent> <leader>] :bn<CR>
+
+    " Map <leader>q to close current buffer
+    nmap <silent> <leader>q :bdelete<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "   Searching and Scrolling
@@ -188,7 +191,7 @@
     imap <C-/>      <C-O><Plug>NERDCommenterToggle
 
     " FuzzyFinder
-    map <silent> <leader>f :tabnew<CR>:FuzzyFinderFile <C-r>='\*\*\/'<CR><CR>
+    map <silent> <leader>f :FuzzyFinderFile <C-r>='\*\*\/'<CR><CR>
     map <silent> <C-f> <leader>f
     map <silent> <leader>b :FuzzyFinderBuffer<CR>
     " Use FuzzyFinder to replace built-in tag navigation (:tag / <C-]>):

@@ -168,8 +168,8 @@
     set expandtab
 
     " Indent in visual mode remains in visual mode: allows multiple indents
-    vmap <silent> > >gv<CR>
-    vmap <silent> < <gv<CR>
+    vnoremap <silent> > >gv
+    vnoremap <silent> < <gv
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "   Plugins

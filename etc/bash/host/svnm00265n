@@ -3,13 +3,15 @@
 #
 # commands specific to my work macbook
 
+export VISUAL=vim;
+
 need mate <<end
-    export VISUAL="${HOME}/bin/textmate";
     alias commit='git diff --cached | mate ; git commit';
 end
 
+
 function gd {
-    git diff "$@" | mate
+    git diff "$@" | vim -
 }
 
 function tunnels() {

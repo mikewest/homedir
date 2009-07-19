@@ -182,6 +182,7 @@
     let NERDTreeHighlightCursorline=1
     let NERDTreeShowBookmarks=1
     let NERDTreeShowHidden=1
+    let NERDTreeQuitOnOpen=1
     map <silent> <leader>d :execute 'NERDTreeToggle ' . getcwd()<CR>
 
     " NERD_Comment
@@ -212,3 +213,6 @@
     let g:SuperTabMidWordCompletion = 0             " No mid-word completion
     let g:SuperTabMappingTabLiteral = '<S-tab>'     " Shift-Tab inserts literal tab
     let g:SuperTabMappingBackward = '<C-tab>'       " Map ctrl-tab to backwards tab completion
+
+    " taglist
+    map <silent> <leader>l :TlistToggle<CR>

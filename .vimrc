@@ -24,7 +24,7 @@
         filetype plugin on
         filetype indent on
         set cursorline          " What line am I on?
-        :colorscheme railscasts " Still deciding if I like this or not
+        colorscheme railscasts " Still deciding if I like this or not
     endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -114,6 +114,7 @@
     " Toggle display of whitespace and +80 character lines with <leader>s
     set listchars=nbsp:¬,eol:¶,tab:>-,extends:»,precedes:«,trail:·
     nnoremap <silent> <leader>s
+        \ :set number!<CR>
         \ :set nolist!<CR>
         \ :if exists('w:long_line_match') <Bar>
         \   silent! call matchdelete(w:long_line_match) <Bar>
@@ -175,6 +176,19 @@
     vnoremap <silent> < <gv
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"   Syntax
+"
+    " PHP
+    let php_short_tags=0        " Short tags are bad.
+    let php_alt_properties=1    " Colorize `->` based on usage
+    let php_sql_query=1         " SQL in strings
+    let php_htmlInStrings=1     " HTML in strings (aside: I find it
+                                " _hilarious_ that even the PHP syntax file
+                                " options follow the general standard of
+                                " completly absurd naming conventions.
+                                " `sql_query` vs `htmlInString`.)
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "   Plugins
 "
     " NERD_Tree
@@ -216,3 +230,8 @@
 
     " taglist
     map <silent> <leader>l :TlistToggle<CR>
+
+    " MiniBufExplorer
+    let g:miniBufExplorerMoreThanOne=0
+    let g:miniBufExplTabWrap=1
+

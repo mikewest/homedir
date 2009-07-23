@@ -93,9 +93,6 @@
     nmap <silent> <leader>[ :bp<CR>
     nmap <silent> <leader>] :bn<CR>
 
-    " Map <leader>q to close current buffer
-    nmap <silent> <leader>q :bdelete<CR>
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "   Searching and Scrolling
 "
@@ -257,3 +254,5 @@
     let g:miniBufExplorerMoreThanOne=0
     let g:miniBufExplTabWrap=1
 
+    " bufkill ( http://www.vim.org/scripts/script.php?script_id=1147 )
+    map <silent> <leader>q  <Plug>BufKillBd

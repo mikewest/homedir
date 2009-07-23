@@ -11,6 +11,9 @@
 "       *   http://pjkh.com/articles/2008/07/09/osx-iterm-screen-vim-256-colors
 "   *   _Long line highlighting_:
 "       *   http://muffinresearch.co.uk/archives/2009/06/22/vim-automatically-highlight-long-lines/
+"   *   _File Templates_:
+"       *   http://lucumr.pocoo.org/2007/8/3/vim-file-templates and http://dev.pocoo.org/~mitsuhiko/_vimrc
+"
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -187,6 +190,25 @@
                                 " options follow the general standard of
                                 " completly absurd naming conventions.
                                 " `sql_query` vs `htmlInString`.)
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"
+"   File Templates
+"
+    function! LoadFileTemplate()
+      silent! 0r ~/.vim/templates/%:e.tmpl
+      syn match vimTemplateMarker "<+.\++>" containedin=ALL
+      hi vimTemplateMarker guifg=#67a42c guibg=#112300 gui=bold
+    endfunction
+    function! JumpToNextPlaceholder()
+      let old_query = getreg('/')
+      echo search("<+.\\++>")
+      exec "norm! c/+>/e\<CR>"
+      call setreg('/', old_query)
+    endfunction
+    autocmd BufNewFile * :call LoadFileTemplate()
+    nnoremap <leader>j :call JumpToNextPlaceholder()<CR>a
+    inoremap <leader>j <ESC>:call JumpToNextPlaceholder()<CR>a
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "   Plugins

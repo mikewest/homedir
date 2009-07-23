@@ -450,12 +450,14 @@ delfunction s:ChooseValue
 syn cluster htmlPreproc add=phpRegion,phpRegionAsp,phpRegionSc
 
 " need to source the SQL syntax file in case we encounter
-" heredoc containing SQL
+" heredoc containing SQL 
 if version < 600
   syn include @sqlTop <sfile>:p:h/sql.vim
 else
   syn include @sqlTop syntax/sql.vim
 endif
+
+
 
 syn sync clear
 unlet b:current_syntax
@@ -726,6 +728,8 @@ syn case ignore
     endif
 
     syn case ignore
+    " XML for `<<<XML` heredoc syntax
+    syn region  phpXML start="<<<XML" end="^XML" contains=@xml keepend
   endif " }}}
 
 

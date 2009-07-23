@@ -36,7 +36,7 @@
     set encoding=utf8               " UTF-8!  Yay!
     set nocompatible                " Vim is The Future.
     set hidden                      " 'Hidden' buffers are awesome.
-    let mapleader=","               " Set ',' as leader.  I'm thinking that '\' might be better.  Or '`'.
+    let mapleader=","               " Set ',' as leader.
     set history=1000                " More history is better
     runtime macros/matchit.vim      " Make '%' more useful
     set wildmenu                    " Make tab completion more useful
@@ -83,9 +83,6 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "   Tabs/Buffers
 "
-    " Always show the tab line
-    " set showtabline=
-
     " Open a new tab with <leader>t
     nmap <silent> <leader>t :tabnew<CR>
 
@@ -114,8 +111,7 @@
     " Toggle display of whitespace and +80 character lines with <leader>s
     set listchars=nbsp:¬,eol:¶,tab:>-,extends:»,precedes:«,trail:·
     nnoremap <silent> <leader>s
-        \ :set number!<CR>
-        \ :set nolist!<CR>
+        \ :set number!<Bar>set nolist!<CR>
         \ :if exists('w:long_line_match') <Bar>
         \   silent! call matchdelete(w:long_line_match) <Bar>
         \   unlet w:long_line_match <Bar>
@@ -149,11 +145,7 @@
         set lines=50
         set columns=85
         set go-=T
-        colorscheme ir_black
-        set guioptions-=T
-        set guioptions-=m
-        set guifont=Panic\ Sans\ 8
-        set showtabline=2
+        colorscheme fruity
         set guitablabel=%t
     end
 
@@ -251,7 +243,7 @@
     map <silent> <leader>l :TlistToggle<CR>
 
     " MiniBufExplorer
-    let g:miniBufExplorerMoreThanOne=0
+    let g:miniBufExplorerMoreThanOne=2
     let g:miniBufExplTabWrap=1
 
     " bufkill ( http://www.vim.org/scripts/script.php?script_id=1147 )

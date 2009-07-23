@@ -94,3 +94,6 @@ highlight SpellBad                  guifg=#D70000 ctermfg=160 ctermbg=NONE cterm
 highlight SpellRare                 guifg=#D75F87 ctermfg=168 guibg=NONE ctermbg=NONE gui=underline cterm=underline
 highlight SpellCap                  guifg=#D0D0FF ctermfg=189 guibg=NONE ctermbg=NONE gui=underline cterm=underline
 highlight MatchParen                guifg=#FFFFFF ctermfg=15 guibg=#005f5f ctermbg=23
+
+highlight StatusLine                guifg=#000000 ctermfg=Black guibg=#FFFFFF ctermbg=White cterm=NONE
+highlight StatusLineNC              guifg=#000000 ctermfg=Black guibg=#CCCCCC ctermbg=LightGray cterm=NONE

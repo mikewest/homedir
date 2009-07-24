@@ -1,0 +1,34 @@
+### Section for authentication and authorization customizations.
+[auth]
+store-passwords = yes
+store-auth-creds = yes
+
+### Section for configuring external helper applications.
+[helpers]
+diff-cmd = ~/bin/fmscripts/fmdiff
+diff3-cmd = ~/bin/fmscripts/fmdiff3
+
+### Section for configuring miscelleneous Subversion options.
+[miscellany]
+global-ignores = *.pyc *.o *.lo *.la #*# .*.rej *.rej .*~ *~ .#* .DS_Store
+enable-auto-props = yes
+
+### Section for configuring automatic properties.
+[auto-props]
+*.txt       = svn:eol-style=native;svn:keywords="Date Author Revision URL Id"
+*.markdown  = svn:eol-style=native;svn:keywords="Date Author Revision URL Id"
+*.textile   = svn:eol-style=native;svn:keywords="Date Author Revision URL Id"
+
+*.py    = svn:eol-style=native;svn:keywords="Date Author Revision URL Id" 
+*.php   = svn:eol-style=native;svn:keywords="Date Author Revision URL Id"
+*.html  = svn:eol-style=native;svn:keywords="Date Author Revision URL Id"
+*.rhtml = svn:eol-style=native;svn:keywords="Date Author Revision URL Id"
+*.pl    = svn:eol-style=native;svn:keywords="Date Author Revision URL Id"
+*.rb    = svn:eol-style=native;svn:keywords="Date Author Revision URL Id"
+*.js    = svn:eol-style=native;svn:keywords="Date Author Revision URL Id"
+*.css   = svn:eol-style=native;svn:keywords="Date Author Revision URL Id"
+*.sql   = svn:eol-style=native;svn:keywords="Date Author Revision URL Id"
+
+*.png   = svn:mime-type=image/png
+*.jpg   = svn:mime-type=image/jpeg
+*.gif   = svn:mime-type=image/gif

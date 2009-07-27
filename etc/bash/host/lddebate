@@ -1,0 +1,6 @@
+# ~/etc/bash/host/mikewest
+# -*- Mode: Bash; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 2 -*-
+#
+# commands specific to the lddebate.org slice
+
+export prompt_prefix="${pyellow}lddebate${preset} "

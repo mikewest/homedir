@@ -6,6 +6,9 @@
 # tab lists all matches immediately
 set         show-all-if-ambiguous           on
 
+# Vi!
+set         editing-mode                    vi
+set         keymap                          vi
 
 # search partial matches in history using [Esc]+[P], +[N] and arrow keys
 "\ep":      history-search-backward

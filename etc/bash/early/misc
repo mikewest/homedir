@@ -6,6 +6,9 @@
 #   overwritten in HOST specific files
 export     VISUAL='vi'
 
+#   VI!
+set -o vi
+
 # PHP Runtime Config
 export      PHPRC="${HOME}/lib/php/php.ini"
 export     PHPLIB="${HOME}/lib/php/"

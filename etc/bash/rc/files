@@ -6,6 +6,7 @@
 alias   diff='diff -u'
 
 alias    f.='find .'
+alias    fn='find . -iname'
 alias   fgr='find . | ack -i'
 alias   fgx='find . -print0 | xargs -0 ack -i'
 

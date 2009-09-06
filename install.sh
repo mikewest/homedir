@@ -11,3 +11,5 @@ ln -s ~/Repositories/homedir/.gitignore ~/.gitignore
 ln -s ~/Repositories/homedir/.gitconfig ~/.gitconfig
 ln -s ~/Repositories/homedir/.vimrc ~/.vimrc
 ln -s ~/Repositories/homedir/.vim ~/.vim
+mkdir -p ~/tmp
+mkdir -p ~/var

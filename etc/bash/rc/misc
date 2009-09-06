@@ -15,6 +15,10 @@ export  EDITOR=vim
 shopt -s checkwinsize
 
 
+# directory
+alias   ..='cd ..'
+alias cd..='cd ..'
+
 # auto complete hosts
 _complete_ssh_hosts ()
 {

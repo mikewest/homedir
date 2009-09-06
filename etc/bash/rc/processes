@@ -12,6 +12,15 @@ alias   stop='sudo kill -STOP'
 alias   cont='sudo kill -CONT'
 alias    top='top -s5 -ocpu'
 
+# Dumps a list of process IDs matching a certain pattern to stdout
+function psid() {
+    ps | grep "$@" | awk '{print $2}'
+}
+# Kills processes matching a pattern
+function killg() {
+    psid "$@" | xargs kill
+}
+
 
 # show the top n memory hogs (default 10)
 function mem {

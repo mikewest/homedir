@@ -6,6 +6,13 @@
 # tab lists all matches immediately
 set         show-all-if-ambiguous           on
 
+# lowercase is easier to type.  *cough*
+set         completion-ignore-case          on
+
+#   More information is better: I want to know what I'm completing.
+set         visible-stats                   on
+set         mark-symlinked-directories      on
+
 # Vi!
 set         editing-mode                    vi
 set         keymap                          vi

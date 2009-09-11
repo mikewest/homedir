@@ -1,0 +1,17 @@
+# ~/etc/bash/rc/js
+# -*- Mode: Bash; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 2 -*-
+#
+# javascript-related commands
+
+# Pulled from Isaac Schlueter's whttp://github.com/isaacs/dotfiles/blob/master/.extra.bashrc
+function testjs() {
+    local i;
+    local err;
+    for i in $(find . -name "*.js"); do
+        err="$(java -jar ~/lib/yuicompressor/current.jar -o /dev/null $i 2>/dev/stdout)";
+        if [ "$err" != "" ]; then
+            echo "$i has errors:";
+            echo "$err";
+        fi;
+    done
+}

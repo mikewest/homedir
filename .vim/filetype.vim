@@ -11,3 +11,6 @@ augroup END
 augroup nginx
     au! BufRead,BufNewFile /usr/local/nginx/sites-enabled/*,/usr/local/nginx/sites-available    setfiletype nginx
 augroup END
+augroup velocity
+    au! BufRead,BufNewFile *.vm  setfiletype velocity 
+augroup END

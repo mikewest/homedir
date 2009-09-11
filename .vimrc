@@ -28,6 +28,12 @@
         filetype indent on
         set cursorline          " What line am I on?
         colorscheme railscasts " Still deciding if I like this or not
+        " Syntax highlight for complext documents is a little slow.  Tweaking
+        " the settings a bit to reduce the load (especially on remote
+        " machines)
+        set synmaxcol=175
+        syn sync minlines=50
+        let loaded_matchparen=1 
     endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -81,6 +87,12 @@
     map <C-V> <Plug>(fakeclip-p)
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"   Typos
+"
+    command W write
+    command Q quit
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "   Tabs/Buffers
 "
     " Open a new tab with <leader>t
@@ -104,7 +116,9 @@
     " make search case-sensitive only when a capital letter is involved
     set ignorecase 
     set smartcase
-    
+   
+    nnoremap <silent> <leader>h :noh<CR>
+
     " show more stuff around the cursor
     set scrolloff=3
  
@@ -142,11 +156,13 @@
 "
     if has('gui_running')
         set encoding=utf-8
-        set lines=50
-        set columns=85
-        set go-=T
+        set lines=89
+        set columns=146
         colorscheme fruity
         set guitablabel=%t
+        set fuoptions=maxvert,maxhorz
+        " au GUIEnter * set fullscreen
+        set guioptions=egmt
     end
 
     " What's that?  You have a mouse?  And you're using iTerm?  Well then...
@@ -171,6 +187,7 @@
 "   Syntax
 "
     " PHP
+    let php_folding=0           " Folding is for losers.
     let php_short_tags=0        " Short tags are bad.
     let php_alt_properties=1    " Colorize `->` based on usage
     let php_sql_query=1         " SQL in strings

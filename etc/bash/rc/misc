@@ -16,8 +16,9 @@ shopt -s checkwinsize
 
 
 # directory
-alias   ..='cd ..'
-alias cd..='cd ..'
+alias    ..='cd ..'
+alias  cd..='cd ..'
+alias -- --='cd -'
 
 # auto complete hosts
 _complete_ssh_hosts ()

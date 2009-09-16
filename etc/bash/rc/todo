@@ -1,0 +1,8 @@
+# ~/etc/bash/rc/todo
+# -*- Mode: Bash; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 2 -*-
+#
+# todo-related commands
+
+alias  t="${HOME}/bin/todo.sh"
+alias tl="${HOME}/bin/todo.sh ls"
+alias ta="${HOME}/bin/todo.sh add"

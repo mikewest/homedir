@@ -21,3 +21,12 @@ function tunnels() {
 }
 
 export prompt_prefix="${pyellow}macbook${preset} "
+
+function sde_todo_add() {
+    if [[ -n $1 ]]; then
+        ~/bin/todo.sh add "${1} @SDE"
+    else
+        echo "Usage: tadd '[TODO GOES HERE]'"
+    fi
+}
+alias ta=sde_todo_add

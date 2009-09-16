@@ -6,10 +6,14 @@
 # Basic Prompt
 current_time="[${pbgblue}${pbold}\A${preset}]"
 current_dir="${pgreen}\$(pwdn 2)${preset}"
-PS1="${prompt_prefix}${current_time} ${current_dir}"
+PS1="${prompt_prefix}${current_time}"
+
+# Are we running inside a Vim shell?
+[ -n "$VIM" ] && \
+    PS1="(vim) ${PS1}";
 
 # Is this an SVN branch/Git Repository?
 [ -n "$SVN_STATUS_PROMPT" ] && [ -n "$GIT_STATUS" ] && \
-    PS1="${prompt_prefix}${current_time} ${pyellow}${GIT_STATUS}${SVN_STATUS_PROMPT}${preset}${current_dir}"
+    PS1="${PS1} ${pyellow}${GIT_STATUS}${SVN_STATUS_PROMPT}${preset}"
 
-PS1="${PS1} \$ "
+PS1="${PS1}${current_dir} \$ "

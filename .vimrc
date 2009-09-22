@@ -167,7 +167,9 @@
 
     " What's that?  You have a mouse?  And you're using iTerm?  Well then...
     if has('mouse')
-        set mouse=a
+        " Use the mouse in normal, visual, and insert modes; this leaves
+        " command mode open for GUI copy/paste.
+        set mouse=nvi
     endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

@@ -95,9 +95,6 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "   Tabs/Buffers
 "
-    " Open a new tab with <leader>t
-    nmap <silent> <leader>t :tabnew<CR>
-
     " Map <leader>[ and <leader>] to previous/next buffer
     nmap <silent> <leader>[ :bp<CR>
     nmap <silent> <leader>] :bn<CR>
@@ -227,7 +224,7 @@
     let NERDTreeShowBookmarks=1
     let NERDTreeShowHidden=1
     let NERDTreeQuitOnOpen=1
-    map <silent> <leader>d :execute 'NERDTreeToggle ' . getcwd()<CR>
+    map <silent> <leader>t :execute 'NERDTreeToggle ' . getcwd()<CR>
 
     " NERD_Comment
     let NERDCommentWholeLinesInVMode=1

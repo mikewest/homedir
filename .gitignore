@@ -28,6 +28,7 @@ Sources/
 .subversion
 .svn
 
-# ignore server stuff
-Maildir/
-etc/sievec
+# ignore vim debris
+tags
+*.swp
+*~

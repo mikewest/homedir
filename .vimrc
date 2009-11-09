@@ -166,9 +166,9 @@
         set guioptions=egmt
 
         map <leader>mz
-            \ :set columns=80<CR>
-            \ :set wrap<CR>
-            \ :set linebreak<CR>
+            \ :set columns=80<Bar>
+            \ :set wrap<Bar>
+            \ :set linebreak<Bar>
             \ :set fu<CR>
     end
 

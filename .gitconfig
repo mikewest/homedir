@@ -1,20 +1,32 @@
 [user]
 	email   = mike@mikewest.org
-	name    = Mike West
+    name    = Mike West
+
 [alias]
 	co      = checkout
 	st      = status
-	d       = diff
+    d       = diff
+    dc      = diff --cached
+    log1    = log --pretty=oneline --abbrev-commit --decorate
+    l       = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+
 [color]
 	status  = auto
 	diff    = auto
 	branch  = auto
+
 [merge]
-	tool    = opendiff
+	tool    = vimdiff
+
 [apply]
 	whitespace      = nowarn
+
 [github]
 	user            = mikewest
 	token           = SEKRIT
+
 [core]
-	excludesfile    = /Users/mikewest/.gitignore
+    excludesfile    = /Users/mikewest/.gitignore
+
+[push]
+    default         = matching

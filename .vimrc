@@ -153,13 +153,20 @@
 "
     if has('gui_running')
         set encoding=utf-8
-        set lines=89
-        set columns=146
-        colorscheme fruity
+        set lines=75
+        set columns=80
+        set guifont=Monaco:h13
         set guitablabel=%t
-        set fuoptions=maxvert,maxhorz
-        " au GUIEnter * set fullscreen
+        "set fuoptions=maxvert,maxhorz
+        "au GUIEnter * set fullscreen
+        set fuoptions=maxvert
         set guioptions=egmt
+
+        map <leader>mz
+            \ :set columns=80<Bar>
+            \ :set wrap<Bar>
+            \ :set linebreak<Bar>
+            \ :set fu<CR>
     end
 
     " What's that?  You have a mouse?  And you're using iTerm?  Well then...

@@ -15,10 +15,10 @@ function gd {
 }
 
 function tunnels() {
-    ssh -N -f -L 5050:scs.msg.yahoo.com:5050 mikewest@slicehost.mikewest.org;
-    ssh -N -f -L 6667:irc.redsrc.com:6667 mikewest@slicehost.mikewest.org;
-    ssh -N -f -L 6666:irc.freenode.net:6667 mikewest@slicehost.mikewest.org;
-    ssh -N -f -D 1080 mikewest@slicehost.mikewest.org;
+#    ssh -N -f -L 5050:scs.msg.yahoo.com:5050 mikewest@slicehost.mikewest.org;
+    ssh -N -f -L 6667:irc.redsrc.com:6667 lddebate;
+#    ssh -N -f -L 6666:irc.freenode.net:6667 mikewest@slicehost.mikewest.org;
+#    ssh -N -f -D 1080 mikewest@slicehost.mikewest.org;
 }
 
 export prompt_prefix="${pyellow}macbook${preset} "

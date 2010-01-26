@@ -68,7 +68,7 @@
     " Ruler / Rulerformat 
     if has('cmdline_info')
         set ruler
-        set rulerformat=%30(%=\:b%n%y%m%r%w\ [Line=%4l,Col=%2c]\ %P%)
+        set rulerformat=%40(%=%y%m%r%w\ [Line=%4l,Col=%2c]\ %P%)
         set showcmd
     endif
 
@@ -231,6 +231,10 @@
     let NERDSpaceDelims=1
     map  <leader>/  <Plug>NERDCommenterToggle
     imap <C-/>      <C-O><Plug>NERDCommenterToggle
+
+    " Syntastic
+    let g:syntastic_enable_signs=1
+    let g:syntastic_auto_loc_list=1
 
     " FuzzyFinder
     map <silent> <leader>f :FuzzyFinderFile <C-r>='\*\*\/'<CR><CR>

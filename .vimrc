@@ -87,10 +87,21 @@
     map <C-V> <Plug>(fakeclip-p)
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"   Movement
+"
+    " Redefining sections to 
+    map [[ ?{<CR>w99[{
+    map ][ /}<CR>b99]}
+    map ]] j0[[%/{<CR>
+    map [] k$][%?}<CR>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "   Typos
 "
     command W write
     command Q quit
+    command Wq wq
+    command WQ wq
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "   Tabs/Buffers
@@ -192,6 +203,11 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "   Syntax
 "
+    " Debugging Syntax Files
+    map <leader>d :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+            \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+            \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+
     " PHP
     let php_folding=0           " Folding is for losers.
     let php_short_tags=0        " Short tags are bad.
@@ -275,3 +291,5 @@
 
     " bufkill ( http://www.vim.org/scripts/script.php?script_id=1147 )
     map <silent> <leader>q  <Plug>BufKillBd
+
+    " vim-git: show diff when writing git commit message

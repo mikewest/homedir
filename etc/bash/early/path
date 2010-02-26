@@ -6,3 +6,4 @@
 [ -x /usr/local/sbin ]      && PATH="/usr/local/sbin:${PATH}"
 [ -x /usr/local/bin ]       && PATH="/usr/local/bin:${PATH}"
 [ -x ${HOME}/bin/ ]         && PATH="${HOME}/bin:${PATH}"
+[ -x /usr/local/mysql/bin ] && PATH="/usr/local/mysql/bin:${PATH}"

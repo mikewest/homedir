@@ -13,5 +13,5 @@ set -o vi
 export      PHPRC="${HOME}/lib/php/php.ini"
 export     PHPLIB="${HOME}/lib/php/"
 
-[ -x ${HOME}/Repositories/ ]    &&  repository_base="${HOME}/Repositories"
-[ -x ${HOME}/Branches/ ]        &&  svn_branches_base="${HOME}/Branches"
+[ -x "${HOME}/Repositories/" ]      &&  repository_base="${HOME}/Repositories"
+[ -x "${HOME}/SVN Repositories/" ]  &&  svn_branches_base="${HOME}/SVN Repositories"

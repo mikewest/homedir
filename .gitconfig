@@ -9,6 +9,7 @@
     dc      = diff --cached
     log1    = log --pretty=oneline --abbrev-commit --decorate
     l       = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+    up      = ! git stash && git svn rebase && git stash pop
 
 [color]
 	status  = auto

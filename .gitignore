@@ -5,7 +5,6 @@ var
 # ignore sensitive files
 .ssh
 
-
 # ignore OS X stuff
 .DS_Store
 .Trash
@@ -32,3 +31,4 @@ Sources/
 tags
 *.swp
 *~
+.vim/tmp

@@ -1,0 +1,1 @@
+../tracked_plugins/vim-liquid/ftplugin/liquid.vim

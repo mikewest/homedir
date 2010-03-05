@@ -86,6 +86,8 @@
     map <C-C> <Plug>(fakeclip-y)
     map <C-V> <Plug>(fakeclip-p)
 
+    imap <C-BS> <C-W>
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "   Movement
 "
@@ -240,6 +242,14 @@
     autocmd BufNewFile * :call LoadFileTemplate()
     nnoremap <leader>j :call JumpToNextPlaceholder()<CR>a
     inoremap <leader>j <ESC>:call JumpToNextPlaceholder()<CR>a
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Debugging Syntax
+"
+map <leader>ds :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+    \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+    \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "   Plugins

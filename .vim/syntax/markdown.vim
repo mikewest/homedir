@@ -1,0 +1,1 @@
+../tracked_plugins/vim-markdown/syntax/markdown.vim

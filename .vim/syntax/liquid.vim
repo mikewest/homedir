@@ -1,0 +1,1 @@
+../tracked_plugins/vim-liquid/syntax/liquid.vim

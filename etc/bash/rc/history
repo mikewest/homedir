@@ -6,6 +6,7 @@
 export   HISTCONTROL=erasedups
 export  HISTFILESIZE=10000
 export      HISTFILE="${HOME}/var/bash_history"
+export    HISTIGNORE="&:l[ls]:st:[vcp]cd:tunnels:exit:[ \t]"
 
 alias    h='history 20'
 alias   hg='history | ack'

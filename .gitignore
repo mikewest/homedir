@@ -5,7 +5,6 @@ var
 # ignore sensitive files
 .ssh
 
-
 # ignore OS X stuff
 .DS_Store
 .Trash
@@ -28,6 +27,8 @@ Sources/
 .subversion
 .svn
 
-# ignore server stuff
-Maildir/
-etc/sievec
+# ignore vim debris
+tags
+*.swp
+*~
+.vim/tmp

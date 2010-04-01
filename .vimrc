@@ -68,7 +68,7 @@
     " Ruler / Rulerformat 
     if has('cmdline_info')
         set ruler
-        set rulerformat=%30(%=\:b%n%y%m%r%w\ [Line=%4l,Col=%2c]\ %P%)
+        set rulerformat=%40(%=%y%m%r%w\ [Line=%4l,Col=%2c]\ %P%)
         set showcmd
     endif
 
@@ -87,17 +87,25 @@
     map <C-V> <Plug>(fakeclip-p)
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"   Movement
+"
+    " Redefining sections to 
+    map [[ ?{<CR>w99[{
+    map ][ /}<CR>b99]}
+    map ]] j0[[%/{<CR>
+    map [] k$][%?}<CR>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "   Typos
 "
     command W write
     command Q quit
+    command Wq wq
+    command WQ wq
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "   Tabs/Buffers
 "
-    " Open a new tab with <leader>t
-    nmap <silent> <leader>t :tabnew<CR>
-
     " Map <leader>[ and <leader>] to previous/next buffer
     nmap <silent> <leader>[ :bp<CR>
     nmap <silent> <leader>] :bn<CR>
@@ -198,6 +206,11 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "   Syntax
 "
+    " Debugging Syntax Files
+    map <leader>d :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+            \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+            \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+
     " PHP
     let php_folding=0           " Folding is for losers.
     let php_short_tags=0        " Short tags are bad.
@@ -237,13 +250,17 @@
     let NERDTreeShowBookmarks=1
     let NERDTreeShowHidden=1
     let NERDTreeQuitOnOpen=1
-    map <silent> <leader>d :execute 'NERDTreeToggle ' . getcwd()<CR>
+    map <silent> <leader>t :execute 'NERDTreeToggle ' . getcwd()<CR>
 
     " NERD_Comment
     let NERDCommentWholeLinesInVMode=1
     let NERDSpaceDelims=1
     map  <leader>/  <Plug>NERDCommenterToggle
     imap <C-/>      <C-O><Plug>NERDCommenterToggle
+
+    " Syntastic
+    let g:syntastic_enable_signs=1
+    let g:syntastic_auto_loc_list=1
 
     " FuzzyFinder
     map <silent> <leader>f :FuzzyFinderFile <C-r>='\*\*\/'<CR><CR>
@@ -277,3 +294,5 @@
 
     " bufkill ( http://www.vim.org/scripts/script.php?script_id=1147 )
     map <silent> <leader>q  <Plug>BufKillBd
+
+    " vim-git: show diff when writing git commit message

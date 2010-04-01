@@ -41,8 +41,6 @@ bindkey -k F3 prev
 
 screen -t bash        bash
 defencoding ISO8859-15
-screen -t import2     ssh import2
-screen -t vmware      ssh vmware
 screen -t staging     ssh staging
 screen -t imperia3    ssh imperia3
 screen -t imperia4    ssh imperia4

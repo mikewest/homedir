@@ -20,8 +20,11 @@ endif
 syn keyword	velocityTodo	contained TODO FIXME XXX
 
 " redefine HTML Strings so they contain velocity stuff:
-syn region  htmlString   contained start=+"+ end=+"+ contains=htmlSpecialChar,javaScriptExpression,@htmlPreproc,velocityReference,velocityFormalReference
-syn region  htmlString   contained start=+'+ end=+'+ contains=htmlSpecialChar,javaScriptExpression,@htmlPreproc,velocityReference,velocityFormalReference
+syn region  htmlString   contained start=+"+ end=+"+ contains=htmlSpecialChar,javaScriptExpression,@htmlPreproc,velocitySilentFormalReference,velocityFormalReference,velocityDirective
+syn region  htmlString   contained start=+'+ end=+'+ contains=htmlSpecialChar,javaScriptExpression,@htmlPreproc,velocitySilentFormalReference,velocityFormalReference,velocityDirective
+
+" redefine HTML tags so that they contain velocity stuff.
+syn region htmlLink start="<a\>\_[^>]*\<href\>" end="</a>"me=e-4 contains=@Spell,htmlTag,htmlEndTag,htmlSpecialChar,htmlPreProc,htmlComment,javaScript,velocitySilentFormalReference,velocityFormalReference,velocityDirective,@htmlPreproc
 
 " the both reference types support the silent mode: $!variableName
 

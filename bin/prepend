@@ -1,0 +1,2 @@
+#!/bin/bash
+echo "$1" | cat - $2 > /tmp/prepending && mv /tmp/prepending $2

@@ -135,6 +135,9 @@
         \   let w:long_line_match = matchadd('ErrorMsg', '\%>80v.\+', -1) <Bar>
         \ endif<CR>
 
+    " Display word/byte count with <leader>wc
+    nnoremap <leader>wc g<C-g>
+
     " wrap around when crossing left and right edge of editors
     set whichwrap=h,l,~,[,],<,>
     set backspace=eol,start,indent

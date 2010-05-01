@@ -170,7 +170,7 @@
     if has('gui_running')
         set encoding=utf-8
         set lines=75
-        set columns=80
+        set columns=75
         set guifont=Monaco:h13
         set guitablabel=%t
         "set fuoptions=maxvert,maxhorz
@@ -179,7 +179,7 @@
         set guioptions=egmt
 
         map <leader>mz
-            \ :set columns=80<Bar>
+            \ :set columns=75<Bar>
             \ :set wrap<Bar>
             \ :set linebreak<Bar>
             \ :set fu<CR>
@@ -246,7 +246,7 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Debugging Syntax
 "
-map <leader>ds :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+map <leader>d :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
     \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
     \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 

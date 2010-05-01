@@ -1,0 +1,5 @@
+#!/bin/sh
+IP=`ifconfig | grep netmask | cut -d\  -f 2 | tail -1`
+echo "http://$IP:8000/$1" | pbcopy
+echo "http://$IP:8000/$1 is now in your clipboard (serving from `pwd`)"
+python -c "import SimpleHTTPServer;SimpleHTTPServer.test()"

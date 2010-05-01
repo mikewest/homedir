@@ -3,7 +3,7 @@
 	url = git://github.com/paulhammond/webkit2png.git
 [submodule ".vim/tracked_plugins/vim-markdown"]
 	path = .vim/tracked_plugins/vim-markdown
-	url = git://github.com/tpope/vim-markdown.git
+    url = git@github.com:mikewest/vim-markdown.git
 [submodule ".vim/tracked_plugins/vim-git"]
 	path = .vim/tracked_plugins/vim-git
 	url = git://github.com/tpope/vim-git.git

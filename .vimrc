@@ -47,6 +47,7 @@
     runtime macros/matchit.vim      " Make '%' more useful
     set wildmenu                    " Make tab completion more useful
     set wildmode=list:longest
+    set wildignore+=*.pyc,*.o,*.obj,.git
     set title                       " Show Vim title in the terminal window
     set visualbell                  " Why would I want my computer to beep at me?
     set shortmess=atI               " get rid of prompts I don't care about
@@ -254,13 +255,18 @@ map <leader>d :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> t
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "   Plugins
 "
+    " Command-T
+    let g:CommandTMaxHeight=5
+    let g:CommandTMatchWindowAtTop=1
+    nmap <silent> <Leader>t :CommandT<CR>
+
     " NERD_Tree
     let NERDChristmasTree=1
     let NERDTreeHighlightCursorline=1
     let NERDTreeShowBookmarks=1
     let NERDTreeShowHidden=1
     let NERDTreeQuitOnOpen=1
-    map <silent> <leader>t :execute 'NERDTreeToggle ' . getcwd()<CR>
+    map <silent> <leader>n :execute 'NERDTreeToggle ' . getcwd()<CR>
 
     " NERD_Comment
     let NERDCommentWholeLinesInVMode=1

@@ -1,1 +1,0 @@
-/Users/svnm157/Repositories/todo.txt-cli/todo.sh

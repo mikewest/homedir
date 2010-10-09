@@ -1,12 +1,24 @@
-[submodule "./lib/python/webkit2png"]
-	path = ./lib/python/webkit2png
-	url = git://github.com/paulhammond/webkit2png.git
-[submodule ".vim/tracked_plugins/vim-markdown"]
-	path = .vim/tracked_plugins/vim-markdown
-    url = git@github.com:mikewest/vim-markdown.git
-[submodule ".vim/tracked_plugins/vim-git"]
-	path = .vim/tracked_plugins/vim-git
-	url = git://github.com/tpope/vim-git.git
-[submodule ".vim/tracked_plugins/vim-liquid"]
-	path = .vim/tracked_plugins/vim-liquid
-	url = git://github.com/tpope/vim-liquid.git
+[submodule ".vim/bundle/vim-git"]
+	path = .vim/bundle/vim-git
+	url = http://github.com/tpope/vim-git.git
+[submodule ".vim/bundle/vim-liquid"]
+	path = .vim/bundle/vim-liquid
+	url = http://github.com/tpope/vim-liquid.git
+[submodule ".vim/bundle/vim-markdown"]
+	path = .vim/bundle/vim-markdown
+	url = git@github.com:mikewest/vim-markdown.git
+[submodule ".vim/bundle/syntastic"]
+	path = .vim/bundle/syntastic
+	url = http://github.com/scrooloose/syntastic.git
+[submodule ".vim/bundle/nerdtree"]
+	path = .vim/bundle/nerdtree
+	url = git://github.com/scrooloose/nerdtree.git
+[submodule ".vim/bundle/nerdcommenter"]
+	path = .vim/bundle/nerdcommenter
+	url = http://github.com/scrooloose/nerdcommenter.git
+[submodule ".vim/bundle/supertab"]
+	path = .vim/bundle/supertab
+	url = http://github.com/ervandew/supertab.git
+[submodule ".vim/bundle/vim-surround"]
+	path = .vim/bundle/vim-surround
+	url = http://github.com/tpope/vim-surround.git

@@ -1,1 +1,0 @@
-../tracked_plugins/vim-git/ftdetect/git.vim

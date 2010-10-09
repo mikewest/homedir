@@ -255,6 +255,10 @@ map <leader>d :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> t
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "   Plugins
 "
+
+    " Load bundles via Pathogen
+    call pathogen#runtime_append_all_bundles() 
+
     " Command-T
     let g:CommandTMaxHeight=5
     let g:CommandTMatchWindowAtTop=1
@@ -277,24 +281,6 @@ map <leader>d :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> t
     " Syntastic
     let g:syntastic_enable_signs=1
     let g:syntastic_auto_loc_list=1
-
-    " FuzzyFinder
-    map <silent> <leader>f :FuzzyFinderFile <C-r>='\*\*\/'<CR><CR>
-    map <silent> <C-f> <leader>f
-    map <silent> <leader>b :FuzzyFinderBuffer<CR>
-    " Use FuzzyFinder to replace built-in tag navigation (:tag / <C-]>):
-    let g:FuzzyFinderOptions = { 'Base':{}, 'Buffer':{}, 'File':{}, 'Dir':{},
-              \                      'MruFile':{}, 'MruCmd':{}, 'Bookmark':{},
-              \                      'Tag':{}, 'TaggedFile':{},
-              \                      'GivenFile':{}, 'GivenDir':{},
-              \                      'CallbackFile':{}, 'CallbackItem':{}, }
-    let g:FuzzyFinderOptions.File.prompt='>'
-    let g:FuzzyFinderOptions.File.excluded_path = '\v\~$|\.o$|\.exe$|\.bak$|\.swp|\.jpg|\.gif|\.png|\.pyc$'
-    let g:FuzzyFinderOptions.Base.info_file = '~/.vim/temp/fuzzyfinder-stats'
-
-
-    nnoremap <silent> <C-f><C-t> :FuzzyFinderTag!<CR>
-    nnoremap <silent> <C-]>      :FuzzyFinderTag! <C-r>=expand('<cword>')<CR><CR>
 
     " SuperTab
     let g:SuperTabMidWordCompletion = 0             " No mid-word completion

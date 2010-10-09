@@ -31,7 +31,7 @@
         " Syntax highlight for complext documents is a little slow.  Tweaking
         " the settings a bit to reduce the load (especially on remote
         " machines)
-        set synmaxcol=175
+        set synmaxcol=500
         syn sync minlines=50
         let loaded_matchparen=1 
     endif
@@ -181,9 +181,9 @@
 
         map <leader>mz
             \ :set columns=75<Bar>
-            \ :set wrap<Bar>
-            \ :set linebreak<Bar>
-            \ :set fu<CR>
+            \ :set invwrap<Bar>
+            \ :set invlinebreak<Bar>
+            \ :set invfu<CR>
     end
 
     " What's that?  You have a mouse?  And you're using iTerm?  Well then...

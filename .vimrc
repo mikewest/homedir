@@ -15,6 +15,11 @@
 "       *   http://lucumr.pocoo.org/2007/8/3/vim-file-templates and http://dev.pocoo.org/~mitsuhiko/_vimrc
 "
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Paths via pathogen
+"
+    filetype off
+    call pathogen#runtime_append_all_bundles() 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Colors
@@ -23,6 +28,8 @@
     " syntax highlighting
     if has('syntax')
         syntax on
+
+
         filetype on
         filetype plugin on
         filetype indent on
@@ -256,8 +263,6 @@ map <leader>d :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> t
 "   Plugins
 "
 
-    " Load bundles via Pathogen
-    call pathogen#runtime_append_all_bundles() 
 
     " Command-T
     let g:CommandTMaxHeight=5

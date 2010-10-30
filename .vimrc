@@ -201,6 +201,17 @@
     endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"   WriteRoom?  I don't need no stinking WriteRoom!
+"
+    nnoremap <leader>V
+        \ :topleft vert new<Bar>
+        \ :botright vert new<Bar>
+        \ :wincmd h<Bar>
+        \ :hi VertSplit ctermbg=black ctermfg=black guifg=black guibg=black<Bar>
+        \ :set fillchars+=vert:\ <CR>
+        
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "   Indenting is serious business
 "
     " Defaults: tab stop every 4 columns (autoindent too), tabs expanded to spaces

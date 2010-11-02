@@ -1,0 +1,11 @@
+#!/bin/sh
+
+if [ -n "${1}" ] && [ -n "${2}" ] && [ -n "${3}" ]; then
+    TMPFILE=`mktemp -t inplaceconv` || exit 1
+    iconv -f ${1} -t ${2} ${3} > ${TMPFILE}
+    mv ${TMPFILE} ${3}
+    perl -pi -e 's/\r\n?/\n/g' ${3}
+else
+    echo "Usage: $0 [from] [to] [file]"
+    exit 1;
+fi

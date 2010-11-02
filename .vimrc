@@ -201,17 +201,6 @@
     endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"   WriteRoom?  I don't need no stinking WriteRoom!
-"
-    nnoremap <leader>V
-        \ :topleft vert new<Bar>
-        \ :botright vert new<Bar>
-        \ :wincmd h<Bar>
-        \ :hi VertSplit ctermbg=black ctermfg=black guifg=black guibg=black<Bar>
-        \ :set fillchars+=vert:\ <CR>
-        
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "   Indenting is serious business
 "
     " Defaults: tab stop every 4 columns (autoindent too), tabs expanded to spaces
@@ -312,5 +301,8 @@ map <leader>d :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> t
 
     " bufkill ( http://www.vim.org/scripts/script.php?script_id=1147 )
     map <silent> <leader>q  <Plug>BufKillBd
+
+    " Vimroom
+    nmap <silent> <Leader>V <Plug>Vimroomize
 
     " vim-git: show diff when writing git commit message

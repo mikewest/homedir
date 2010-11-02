@@ -2,6 +2,11 @@
 # 
 # control the readline library functions
 
+# Encoding settings
+set         meta-flag                       on
+set         input-meta                      on
+set         output-meta                     on
+set         convert-meta                    off
 
 # tab lists all matches immediately
 set         show-all-if-ambiguous           on

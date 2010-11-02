@@ -3,4 +3,7 @@
 "
 
 "   2-space tabs.
-autocmd FileType ruby setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set expandtab

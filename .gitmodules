@@ -6,13 +6,13 @@
 	url = http://github.com/tpope/vim-liquid.git
 [submodule ".vim/bundle/vim-markdown"]
 	path = .vim/bundle/vim-markdown
-	url = git@github.com:mikewest/vim-markdown.git
+	url = http://github.com/mikewest/vim-markdown.git
 [submodule ".vim/bundle/syntastic"]
 	path = .vim/bundle/syntastic
 	url = http://github.com/scrooloose/syntastic.git
 [submodule ".vim/bundle/nerdtree"]
 	path = .vim/bundle/nerdtree
-	url = git://github.com/scrooloose/nerdtree.git
+	url = http://github.com/scrooloose/nerdtree.git
 [submodule ".vim/bundle/nerdcommenter"]
 	path = .vim/bundle/nerdcommenter
 	url = http://github.com/scrooloose/nerdcommenter.git
@@ -24,4 +24,8 @@
 	url = http://github.com/tpope/vim-surround.git
 [submodule ".vim/bundle/vimroom"]
 	path = .vim/bundle/vimroom
-	url = git@github.com:mikewest/vimroom.git
+	url = http://github.com/mikewest/vimroom.git
+
+[submodule ".vim/bundle/solarized"]
+	path = .vim/bundle/solarized
+	url = git://github.com/altercation/vim-colors-solarized.git

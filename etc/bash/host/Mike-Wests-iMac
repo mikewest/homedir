@@ -5,15 +5,10 @@
 
 export VISUAL=vim;
 
-need mate <<end
-    alias commit='git diff --cached | mate ; git commit';
-end
-
-
 function gd {
     git diff "$@" | vim -
 }
 
 [ -x /Users/mikewest/Repositories/chromium/depot_tools ] && PATH="/Users/mikewest/Repositories/chromium/depot_tools:${PATH}"
-
+[ -x /Users/mikewest/Repositories/chromium/src/third_party/WebKit/Tools/Scripts ] && PATH="/Users/mikewest/Repositories/chromium/src/third_party/WebKit/Tools/Scripts:${PATH}"
 export prompt_prefix="${pyellow}iMac${preset} "

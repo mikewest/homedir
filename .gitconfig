@@ -1,15 +1,20 @@
 [user]
 	email   = mike@mikewest.org
-    name    = Mike West
+	name = Mike West
 
 [alias]
-	co      = checkout
-	st      = status
+    co      = checkout
+    st      = status
     d       = diff
     dc      = diff --cached
     log1    = log --pretty=oneline --abbrev-commit --decorate
-    l       = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+    l       = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s
     up      = ! git stash && git svn rebase && git stash pop
+    fshow   = ! sh -c 'git show --pretty="format:" --name-only $1 | grep -v "^$" | uniq | sed -e "s#^#`git rev-parse --show-toplevel`/#"' -
+    fdiff   = ! sh -c 'git diff --name-only $1 | sed -e "s#^#`git rev-parse --show-toplevel`/#"' -
+    vim     = ! sh -c 'vim `git fshow $1`' -
+    vimdiff = ! sh -c 'vim `git fdiff $1`' -
+    vimun   = ! vim `git st --porcelain | grep '^ [MA] ' | sed -e 's/^ [MA] //'`
 
 [color]
 	status  = auto

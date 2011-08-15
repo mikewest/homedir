@@ -8,7 +8,7 @@
     d       = diff
     dc      = diff --cached
     log1    = log --pretty=oneline --abbrev-commit --decorate
-    l       = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s
+    l       = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s'
     up      = ! git stash && git svn rebase && git stash pop
     fshow   = ! sh -c 'git show --pretty="format:" --name-only $1 | grep -v "^$" | uniq | sed -e "s#^#`git rev-parse --show-toplevel`/#"' -
     fdiff   = ! sh -c 'git diff --name-only $1 | sed -e "s#^#`git rev-parse --show-toplevel`/#"' -

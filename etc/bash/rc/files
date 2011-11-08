@@ -16,6 +16,8 @@ alias   mkdir='mkdir -p'
 
 alias   rm='rm -i'
 
+alias tree="ls -R | grep \":$\" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's/-/|/'"
+
 function cdb {
   if [ -n "${svn_branches_base}" ]; then
     if [ ! ${1} = "" ]; then

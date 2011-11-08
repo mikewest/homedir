@@ -203,10 +203,10 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "   Indenting is serious business
 "
-    " Defaults: tab stop every 4 columns (autoindent too), tabs expanded to spaces
-    set tabstop=4
-    set shiftwidth=4
-    set softtabstop=4
+    " Defaults: tab stop every 2 columns (autoindent too), tabs expanded to spaces
+    set tabstop=2
+    set shiftwidth=2
+    set softtabstop=2
     set expandtab
 
     " Indent in visual mode remains in visual mode: allows multiple indents

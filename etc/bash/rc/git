@@ -6,6 +6,8 @@
 function git_status_prompt {
     local curdir=`pwd`
     [[ ! $curdir =~ ^$repository_base ]] && return
+    [[ $curdir =~ "WebKit" ]] && return
+    [[ $curdir =~ "webkit" ]] && return
     git rev-parse --git-dir &> /dev/null
     git_status="$(git status 2> /dev/null)"
     branch_pattern="^# On branch ([^${IFS}]*)"

@@ -19,7 +19,7 @@
 " Paths via pathogen
 "
     filetype off
-    call pathogen#runtime_append_all_bundles() 
+    call pathogen#runtime_append_all_bundles()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Colors
@@ -38,9 +38,8 @@
         " Syntax highlight for complext documents is a little slow.  Tweaking
         " the settings a bit to reduce the load (especially on remote
         " machines)
-        set synmaxcol=500
         syn sync minlines=50
-        let loaded_matchparen=1 
+        let loaded_matchparen=1
     endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -73,7 +72,7 @@
     set modeline
     set modelines=5
 
-    " Ruler / Rulerformat 
+    " Ruler / Rulerformat
     if has('cmdline_info')
         set ruler
         set rulerformat=%40(%=%y%m%r%w\ [Line=%4l,Col=%2c]\ %P%)
@@ -91,15 +90,15 @@
     nmap <silent> <C-A> ggVG<CR>
 
     " Map <Ctrl-C> and <Ctrl-V> to the OSX clipboard (using fakeclip plugin)
-    map <C-C> <Plug>(fakeclip-y)
-    map <C-V> <Plug>(fakeclip-p)
+"    map <C-C> <Plug>(fakeclip-y)
+"    map <C-V> <Plug>(fakeclip-p)
 
     imap <C-BS> <C-W>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "   Movement
 "
-    " Redefining sections to 
+    " Redefining sections to
     map [[ ?{<CR>w99[{
     map ][ /}<CR>b99]}
     map ]] j0[[%/{<CR>
@@ -120,6 +119,9 @@
     nmap <silent> <leader>[ :bp<CR>
     nmap <silent> <leader>] :bn<CR>
 
+    " Map Ctrl+Tab to next buffer.
+    nmap <silent> <C-Tab> :bn<CR>
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "   Searching and Scrolling
 "
@@ -132,26 +134,18 @@
     set incsearch
 
     " make search case-sensitive only when a capital letter is involved
-    set ignorecase 
+    set ignorecase
     set smartcase
-   
+
     nnoremap <silent> <leader>h :noh<CR>
 
     " show more stuff around the cursor
     set scrolloff=3
- 
+
     " Toggle display of whitespace and +80 character lines with <leader>s
     set listchars=nbsp:¬,eol:¶,tab:>-,extends:»,precedes:«,trail:·
     nnoremap <silent> <leader>s
         \ :set number!<Bar>set nolist!<CR>
-        \ :if exists('w:long_line_match') <Bar>
-        \   silent! call matchdelete(w:long_line_match) <Bar>
-        \   unlet w:long_line_match <Bar>
-        \ elseif &textwidth > 0 <Bar>
-        \   let w:long_line_match = matchadd('ErrorMsg', '\%>'.&tw.'v.\+', -1) <Bar>
-        \ else <Bar>
-        \   let w:long_line_match = matchadd('ErrorMsg', '\%>80v.\+', -1) <Bar>
-        \ endif<CR>
 
     " Display word/byte count with <leader>wc
     nnoremap <leader>wc g<C-g>
@@ -203,10 +197,10 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "   Indenting is serious business
 "
-    " Defaults: tab stop every 4 columns (autoindent too), tabs expanded to spaces
-    set tabstop=4
-    set shiftwidth=4
-    set softtabstop=4
+    " Defaults: tab stop every 2 columns (autoindent too), tabs expanded to spaces
+    set tabstop=2
+    set shiftwidth=2
+    set softtabstop=2
     set expandtab
 
     " Indent in visual mode remains in visual mode: allows multiple indents
@@ -216,21 +210,11 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "   Syntax
 "
-    " Debugging Syntax Files
-    map <leader>d :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
-            \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
-            \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+    " Line-ending whitespace (on a line with other text) is an error.
+    autocmd WinEnter,BufWinEnter * let w:line_ending_ws=matchadd('ErrorMsg', '\s\+$', -1)
 
-    " PHP
-    let php_folding=0           " Folding is for losers.
-    let php_short_tags=0        " Short tags are bad.
-    let php_alt_properties=1    " Colorize `->` based on usage
-    let php_sql_query=1         " SQL in strings
-    let php_htmlInStrings=1     " HTML in strings (aside: I find it
-                                " _hilarious_ that even the PHP syntax file
-                                " options follow the general standard of
-                                " completly absurd naming conventions.
-                                " `sql_query` vs `htmlInString`.)
+    " Lines of more than 80 characters are errors.
+    autocmd WinEnter,BufWinEnter * let w:long_lines=matchadd('ErrorMsg', '\%>80v.\+', -1)
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
@@ -258,6 +242,28 @@ map <leader>d :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> t
     \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
     \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Headers/Source
+"
+function! FlipSource()
+  if (expand ("%:e") == "cpp")
+    find %:t:r.h
+  else
+    find %:t:r.cpp
+  endif
+endfunction
+
+map <leader>h :call FlipSource()<CR>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"   WebKit
+"
+  autocmd BufRead,BufEnter /usr/local/google/home/mkwst/webkit/* set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+  autocmd BufRead,BufEnter /usr/local/google/home/mkwst/webkit/*/ChangeLog set tabstop=4 softtabstop=4 shiftwidth=4 expandtab textwidth=0
+  autocmd WinEnter,BufWinEnter /usr/local/google/home/mkwst/webkit/* let w:long_lines=matchadd('ErrorMsg', '\%>200v.\+', -1)
+  autocmd BufRead,BufEnter /Users/*/Repositories/WebKit/* set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+  autocmd BufRead,BufEnter /Users/*/Repositories/WebKit/*/ChangeLog set tabstop=4 softtabstop=4 shiftwidth=4 expandtab textwidth=0
+  autocmd WinEnter,BufWinEnter /Users/*/Repositories/WebKit/* let w:long_lines=matchadd('ErrorMsg', '\%>200v.\+', -1)
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "   Plugins

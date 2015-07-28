@@ -68,6 +68,9 @@
     nnoremap ` '
     map <silent> <leader>p :set paste!<CR> " <leader>p toggles paste mode
 
+    " Paste without yanking.
+    xnoremap p "_dP
+
 
     " Modelines let me set file-specific settings with file headers
     set modeline
@@ -214,23 +217,31 @@
     vnoremap <silent> < <gv
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"   Project-specific setup.
+"
+    augroup ChromiumSetup
+    au BufRead,BufEnter /usr/local/google/home/mkwst/blink/src/* set expandtab softtabstop=2 tabstop=2 shiftwidth=2
+    au BufRead,BufEnter /usr/local/google/home/mkwst/blink/src/third_party/WebKit/* set expandtab softtabstop=4 tabstop=4 shiftwidth=4
+    augroup END
+
+    function! SwitchHeader()
+        if expand("%:e") == "cpp" || expand("%:e") == "cc"
+            exe "e" fnameescape(expand("%:p:r").".h")
+        elseif expand("%:e") == "h"
+            exe "e" fnameescape(expand("%:p:r").".cpp")
+        endif
+    endfunction
+
+    map <leader>o :call SwitchHeader()<CR>
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "   Syntax
 "
     " Debugging Syntax Files
     map <leader>d :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
             \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
             \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
-
-    " PHP
-    let php_folding=0           " Folding is for losers.
-    let php_short_tags=0        " Short tags are bad.
-    let php_alt_properties=1    " Colorize `->` based on usage
-    let php_sql_query=1         " SQL in strings
-    let php_htmlInStrings=1     " HTML in strings (aside: I find it
-                                " _hilarious_ that even the PHP syntax file
-                                " options follow the general standard of
-                                " completly absurd naming conventions.
-                                " `sql_query` vs `htmlInString`.)
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
@@ -284,8 +295,8 @@ map <leader>d :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> t
     imap <C-/>      <C-O><Plug>NERDCommenterToggle
 
     " Syntastic
-    let g:syntastic_enable_signs=1
-    let g:syntastic_auto_loc_list=1
+    let g:syntastic_enable_signs=0
+    let g:syntastic_auto_loc_list=0
 
     " SuperTab
     let g:SuperTabMidWordCompletion = 0             " No mid-word completion

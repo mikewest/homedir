@@ -1,6 +1,6 @@
 [user]
-	email   = mike@mikewest.org
 	name = Mike West
+	email = mkwst@google.com
 
 [alias]
     co      = checkout
@@ -15,11 +15,12 @@
     vim     = ! sh -c 'vim `git fshow $1`' -
     vimdiff = ! sh -c 'vim `git fdiff $1`' -
     vimun   = ! vim `git st --porcelain | grep '^ [MA] ' | sed -e 's/^ [MA] //'`
+    yay     = commit -am '!fixup `git rev-parse --abbrev-ref HEAD`'
+    nb      = new-branch --upstream-current
+    m       = map-branches 
 
 [color]
-	status  = auto
-	diff    = auto
-	branch  = auto
+	ui = true
 
 [merge]
 	tool    = vimdiff
@@ -32,7 +33,9 @@
 	token           = SEKRIT
 
 [core]
-    excludesfile    = /Users/mikewest/.gitignore
+  excludesfile    = /Users/mikewest/.gitignore
+	autocrlf = false
+	filemode = false
 
 [push]
-    default         = matching
+  default         = matching

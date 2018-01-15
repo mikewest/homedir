@@ -1,0 +1,5 @@
+is_debug = false
+is_component_build = true
+enable_nacl = false
+use_goma = true
+dcheck_always_on = true

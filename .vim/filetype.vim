@@ -11,3 +11,6 @@ augroup END
 augroup velocity
     au! BufRead,BufNewFile *.vm  setfiletype velocity 
 augroup END
+augroup bikeshed
+    au! BufRead,BufNewFile *.bs  setfiletype bikeshed
+augroup END

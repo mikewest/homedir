@@ -1,0 +1,10 @@
+#!/bin/sh
+TEST_LOCATION=${1/http\/tests\//http:\/\/127.0.0.1:8000/}
+TEST_LOCATION=${TEST_LOCATION/external\/wpt\//http:\/\/web-platform.test:8001/}
+if [[ $1 =~ ".https." ]]
+then
+  TEST_LOCATION=${TEST_LOCATION/http:\/\/127.0.0.1:8000/https:\/\/127.0.0.1:8443}
+  TEST_LOCATION=${TEST_LOCATION/http:\/\/web-platform.test:8001/https:\/\/web-platform.test:8444}
+fi
+echo "cs --run-layout-test --allow-external-pages $TEST_LOCATION"
+$CHROMIUM_SRC/out/GN/content_shell --run-layout-test --allow-external-pages $TEST_LOCATION

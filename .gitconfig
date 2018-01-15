@@ -1,19 +1,17 @@
 [user]
 	name = Mike West
-	email = mkwst@google.com
+	email = mkwst@chromium.org
 
 [alias]
     co      = checkout
     st      = status
-    d       = diff
+    d       = diff @{u}
     dc      = diff --cached
     log1    = log --pretty=oneline --abbrev-commit --decorate
-    l       = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s'
+    l       = log --graph --pretty=format:'%Cred%h (%cd)%Creset -%C(yellow)%d%Creset %s'
     up      = ! git stash && git svn rebase && git stash pop
-    fshow   = ! sh -c 'git show --pretty="format:" --name-only $1 | grep -v "^$" | uniq | sed -e "s#^#`git rev-parse --show-toplevel`/#"' -
-    fdiff   = ! sh -c 'git diff --name-only $1 | sed -e "s#^#`git rev-parse --show-toplevel`/#"' -
-    vim     = ! sh -c 'vim `git fshow $1`' -
-    vimdiff = ! sh -c 'vim `git fdiff $1`' -
+    vim     = ! sh -c 'vim `git diff --name-only @{u}`' -
+    vimdiff = ! sh -c 'vim `git diff @{u}`' -
     vimun   = ! vim `git st --porcelain | grep '^ [MA] ' | sed -e 's/^ [MA] //'`
     yay     = commit -am '!fixup `git rev-parse --abbrev-ref HEAD`'
     nb      = new-branch --upstream-current
@@ -39,3 +37,7 @@
 
 [push]
   default         = matching
+[http]
+	cookiefile = /usr/local/google/home/mkwst/.gitcookies
+[gc]
+	auto = 0

@@ -1,0 +1,14 @@
+{hk1}>{s5}{x1}{-lwin}{d}{+lwin}
+{hk2}>{s5}{x1}{-lalt}{tab}{+lalt}
+{hk3}>{s5}{x1}{-lctrl}{a}{+lctrl}
+{hk4}>{s5}{x1}{-lctrl}{z}{+lctrl}
+{hk5}>{s5}{x1}{-ctrl}{-lwin}{lft}{+ctrl}{+lwin}
+{hk6}>{s1}{x1}{-ctrl}{-lwin}{rght}{+ctrl}{+lwin}
+{hk7}>{s5}{x1}{-shift}{-ctrl}{-alt}{-lwin}{lft}{+shift}{+ctrl}{+alt}{+lwin}
+{hk8}>{s5}{x1}{-shift}{-ctrl}{-alt}{-lwin}{rght}{+shift}{+ctrl}{+alt}{+lwin}
+[hk10]>[null]
+{hk10}>{-ctrl}{-alt}{ent}{+ctrl}{+alt}
+[lwin]>[alt]
+[lalt]>[lwin]
+[ralt]>[lwin]
+[rctrl]>[alt]

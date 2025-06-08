@@ -10,6 +10,7 @@ ln -s ~/Repositories/homedir/.screenrc ~/.screenrc
 ln -s ~/Repositories/homedir/.gitignore ~/.gitignore
 ln -s ~/Repositories/homedir/.gitconfig ~/.gitconfig
 ln -s ~/Repositories/homedir/.vimrc ~/.vimrc
-ln -s ~/Repositories/homedir/.vim ~/.vim
+mkdir -p ~/.vim/autoload
+curl -fLo ~/.vim/autoload/plug.vim https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 mkdir -p ~/tmp
 mkdir -p ~/var

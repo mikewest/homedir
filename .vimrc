@@ -71,6 +71,8 @@ command W write
 command Q quit
 command Wq wq
 command WQ wq
+inoremap <F1> <Esc>
+nnoremap <F1> <Esc>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
